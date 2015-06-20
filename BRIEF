@@ -1,0 +1,24 @@
+"" = To be certified
+|| = Advanced
+[] = To be used ONLY in Alpha stages
+{} = To be used in both Alpha and beta phases
+
+====================================| Brief |===================================
+
+A Python- based text file editor, that changes certain words based upon Gender,
+Status to the user and "age".
+
+== Usage ==
+
+This program is primarily designed to be used as a test for a future Java- Based
+project. The user should be able to [paste text into a medium], or select a file
+from a GUI for the program to translate.
+The user would then {enter the person ion question's status}, or select who the 
+message is aimed at.
+Finally, the program would {produce a re- formatted copy of the pasted text}, or
+point- to/ open a direct Rory based upon the user's system, containing the
+re- formatted version of the file. "|Alternatively, if the file was to be used as
+text in an E- mail client, the program would paste the text into the client, and
+open up the GUI in question|"
+
+## TBC QWFX S: 20/06/2015 E: ~ 21/06/2015
