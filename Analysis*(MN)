@@ -3,7 +3,9 @@
 == What the User Should See ==
 
 First the user chooses the file which they want to edit then the program starts 
-asking the user questions about the changes user wants to have then the computer 
+asking the user questions about the changes user wants to have then the program 
+will be looking for those certain keywords and edit them according to the user's 
+answers.
 
 
 
