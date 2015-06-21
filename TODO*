@@ -2,13 +2,14 @@
 
 This file helps us keep track of what we have to do.
 
-Please format the taska as follows:
+Please format the task as follows:
 
 C = Completed
 I = In Progress
 N = Not Started
 
-<(C/I/N)><D/A/TE>< ><(INITIALS): ><CONTENT>
+<-    ><[Initials]>< ><[D/A/TE_START | D/A/TE_END]><-><DELAY(days, hours)><:> <CONTENT.>
 
 --------------------------------------------------------------------------------
 
+-   [MN] (I) [21/06/2015 | 23/06/2015]-[N]: Updating the Analysis file.
