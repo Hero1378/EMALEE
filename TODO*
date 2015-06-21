@@ -7,9 +7,10 @@ Please format the task as follows:
 C = Completed
 I = In Progress
 N = Not Started
+# = NULL
 
 <-    ><[Initials]>< ><[D/A/TE_START | D/A/TE_END]><-><DELAY(days, hours)><:> <CONTENT.>
 
 --------------------------------------------------------------------------------
 
--   [MN] (I) [21/06/2015 | 23/06/2015]-[N]: Updating the Analysis file.
+-   [MN] (I) [21/06/2015 | 23/06/2015]-[#]: Updating the Analysis file.
