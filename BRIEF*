@@ -13,7 +13,7 @@ Status to the user and "age".
 This program is primarily designed to be used as a test for a future Java- Based
 project. The user should be able to [paste text into a medium], or select a file
 From a GUI for the program to translate.
-The user would then {enter the person ion question's status}, or select who the 
+The user would then {enter the person in question's status}, or select who the 
 Message is aimed at.
 Finally, the program would {produce a re- formatted copy of the pasted text}, or
 point- to/ open a directory based upon the user's system, containing the
@@ -29,7 +29,7 @@ The GUI will be implemented late project
 
 Camel case and Hungarian Notation are to be used in order to improve legibility:
 
-    m_iVariableOfGreatInportance
+    m_iVariableOfGreatImportance
     
 commented- out curly braces are also to be used:
 
