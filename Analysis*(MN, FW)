@@ -2,9 +2,9 @@
 
 == What the User Should See ==
 
-First the user chooses the file which they want to edit then the program starts 
-asking the user questions about the changes user wants to have then the program 
-will be looking for those certain keywords and edit them according to the user's 
-answers.
+First, the user selects the file which they want to edit. Then, the asksthe user
+questions about the changes the user wants to have made to the file. After this, 
+the program should look for these keywords and edit them according to the user's 
+requirements.
 
 == PSEUDO ==
