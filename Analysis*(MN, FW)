@@ -1,10 +1,19 @@
 ==================================| Analysis |==================================
 
+"" = To be certified
+|| = Advanced
+[] = To be used ONLY in Alpha stages
+{} = To be used in both Alpha and beta phases
+
 == What the User Should See ==
 
-First, the user selects the file which they want to edit. Then, the asksthe user
+{First, the user selects the file which they want to edit. Then, the asksthe user
 questions about the changes the user wants to have made to the file. After this, 
 the program should look for these keywords and edit them according to the user's 
-requirements.
+requirements.}
+
+== Mock commands ==
+
+
 
 == PSEUDO ==
