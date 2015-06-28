@@ -7,14 +7,17 @@ Please format the task as follows:
 C = Completed
 I = In Progress
 N = Not Started
-P = Postpone
+P = Postponed
 # = NULL
+¬ = Postponed
 
-<-    ><[Initials]>< ><[D/A/TE_START | D/A/TE_END]><-><DELAY(days, hours)><:> <CONTENT.>
+<-/¬    ><[Initials]>< ><[D/A/TE_START | D/A/TE_END]><-><DELAY(days, hours)><:> <C
+                                                                        ONTENT.>
 
 --------------------------------------------------------------------------------
 
 -   [MN] (C) [21/06/2015 | 23/06/2015]-[2]: Updating the Analysis file.
-    -      [FW] (P) [#]-[#]: Continue to improve Analysis. (When analysis is later
+¬   [FW] (P) [#]-[#]: Continue to improve Analysis. (When analysis is later
                           added to.)
--   [FW] (N) [#]-[#]: Start work on framework.
+-   [FW] (I) [28/06/2015 | 30/07/2015]-[#]: Start work on framework.
+-   [FW] (I) [28/06/2015 | 02/07/2015]-[#]: Write String parser.
