@@ -1,0 +1,62 @@
+
+find:
+-   PRAMS: (toFindType, toFind, toFindArgs, returnType, instancesIgnored)
+------------------------------------------------------------------------------------------------------------------------
+    -   toFindType = the type of toFind
+
+        -   toFindTypes:
+
+            -   "iString" = a whole word String (seperated with spaces), individualString
+            -   "eString" = a whole word String (may be quished between characters), enclosedString
+            -   "char" = a specific character (may have characters surrounding it)
+------------------------------------------------------------------------------------------------------------------------
+    -   toFind = the string to find
+------------------------------------------------------------------------------------------------------------------------
+    -   toFindArgs = alters what the parser returns
+
+        -   toFindArgs:
+
+            -   "!x" READ UNTIL next occurrence of x is found
+            -   "+x" READ +x toFindTypes AFTER toFind
+            -   "-x" READ -x toFindTypes BEFORE toFind
+            -   ">x" READ AFTER toFind UNTIL x is found
+            -   "<x" READ BEFORE toFind UNTIL x is found
+------------------------------------------------------------------------------------------------------------------------
+    -   instancesIgnored = how many instances of the toFind is ignored, before the returnType is returned
+------------------------------------------------------------------------------------------------------------------------
+    -   returnType = what format the variable sent back is
+
+        -returnTypes:
+
+            -   "string" the data is sent back in string form
+            -   "rowCol" the data is sent back in integer form, in its rows(lines) and columns(chars across)
+------------------------------------------------------------------------------------------------------------------------
+EXAMPLES:(from FileExample)
+
+IMPOSSIBLE:
+
+-   Some combinations of parameters are impossible, some are listed below:
+    -   iString, x, !x, None, rowCol | This would return ALL rows and columns between the two points
+    -   TODO
+
+-   PRAMS: ("iString", "qui", "!qui", None, "String")
+
+    HUMAN: Find a whole word, surrounded by spaces, returning everything between the first occurrence of
+           "qui(in its toFindType)" and the next occurrence of "qui", ignoring no instances of "qui", returning all
+           Strings between the start point and end point listed above.
+
+    SDOUT:  ratione voluptatem sequi nesciunt. Neque porro quisquam est,
+
+    PRAMS: ("eString", "qui", "!qui", None, "String")
+
+    HUMAN: Find a whole word, surrounded by characters, returning everything between the first occurrence of
+           "qui(in its toFindType)" and the next occurrence of "qui", ignoring no instances of "qui", returning all
+           Strings between the start point and the end point listed above.
+
+    SDOUT: a voluptas sit aspernatur aut odit aut fugit, sed
+
+    PRAMS: ("iString", "qui", "!qui", None, "rowCol")
+
+    HUMAN: Find a whole word, surrounded by spaces, returning everything between the first occurrence of
+           "qui(in its toFindType)" and the next occurrence of "qui", ignoring no instances of "qui", returning the rows
+           and columns
