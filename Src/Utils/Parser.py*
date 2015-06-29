@@ -1,0 +1,127 @@
+
+class Parser:
+#{
+    def __init__(self, file):
+    #{
+        global MAX_FILE_CACHE # how many lines can be read, before loops terminate
+        MAX_FILE_CACHE = 500   # avoids massivly-long loops
+
+        self.FILE = None
+        self.file = str(file)
+
+        try: # Check that file exists, before opening in a+ mode
+        #{
+            self.FILE = open(str(self.file), "r") # Open in read mode
+        #}
+        except(IOError) as error:
+        #{
+            print("== Can't open file: " + str(self.file) +
+                  " ==\n\t" + str(error))
+
+            raise NameError
+        #}
+        else:
+        #{
+            self.FILE = open(str(self.file), "r+") # Open in read and WRITE mode
+        #}
+    #}
+
+    def getFileLen(self):
+    #{
+        fileLen = 0
+        currLine = "<Undefined>" # The line currently being read
+
+        while(currLine != ""): # Read until EOF
+        #{
+            currLine = self.FILE.readline()
+
+            fileLen += 1
+        #}
+
+        self.FILE.close() # re-open file at first line QWFX SMELL
+        self.FILE = open(self.file, "r+")
+
+        return fileLen
+    #}
+
+    def find(self, toFindType, toFind, toFindArgs, returnType,
+              instancesIgnored):
+    #{
+        toFindType = toFindType
+        toFind = toFind
+        toFindArgs = toFindArgs
+        returnType = returnType
+        instancesIgnored = instancesIgnored
+        lengthOfFile = self.getFileLen()
+        fileContents = []
+        currLine = "<Undefined>" # The current line being read
+
+        if(toFindType not in("iString", "eString", "char")): # Pre- checks
+        #{
+            print("== toFindType: " + str(toFindType) +
+                  " is not vaild ==")
+
+            raise NameError
+        #}
+        elif(toFindArgs is not None):
+        #{
+            if(("!", "+", "-", ">", "<") not in toFindArgs): # found in
+            #{
+                print("== argument: " + str(toFindArgs) +
+                  " is not valid ==")
+
+                raise NameError
+            # }
+        #}
+        elif(returnType not in("string", "rowCol")):
+        #{
+            print("== returnType: " + str(returnType) +
+                  " is not valid ==")
+
+            raise NameError
+        #}
+        elif(instancesIgnored is not None):
+        #{
+            if(not (isinstance(instancesIgnored, int))): # If not an integer
+            #{
+                print("== the number of instances ignored should be"
+                "in integer form ==")
+
+                raise NameError
+            #}
+        #}
+
+        pos = 0 # loop counter
+
+        while((currLine != "") or (pos < MAX_FILE_CACHE)): # Read until EOF
+        #{
+            currLine = self.FILE.readline()
+
+            fileContents.append(currLine)
+
+            pos += 1
+        #}
+
+        del pos # remove the existence of pos (out of scope)
+
+        foundItem = False # Marks if "toFind" has been found
+
+        while(not foundItem):
+        #{  TODO
+            pass
+            break#QWFX
+        #}
+    #}
+
+    def replace(self, toFInd, toFindArgs, instancesIgnored, row, column,
+                  replaceWith, replaceArgs):
+    #{TODO
+        pass
+    #}
+#}
+
+
+par = Parser("FileExample")
+# find a whole word seperated by spaces, named "qui", with no arguments,
+# return in rowCol form, ignoring no instances of "qui"
+par.find("iString", "qui", None, "rowCol", None)
