@@ -1,4 +1,3 @@
-
 class Parser:
 #{
     def __init__(self, file):
@@ -18,7 +17,7 @@ class Parser:
             print("== Can't open file: " + str(self.file) +
                   " ==\n\t" + str(error))
 
-            raise NameError
+            # raise NameError
         #}
         else:
         #{
@@ -44,7 +43,7 @@ class Parser:
         return fileLen
     #}
 
-    def find(self, toFindType, toFind, toFindArgs, returnType,
+    def find(self, toFindType, toFind, startPoint, toFindArgs, returnType,
               instancesIgnored):
     #{
         toFindType = toFindType
@@ -61,7 +60,22 @@ class Parser:
             print("== toFindType: " + str(toFindType) +
                   " is not vaild ==")
 
-            raise NameError
+            # raise NameError
+        #}
+        elif(startPoint is not None):
+        #{
+            invalidStartPoints = []
+
+            for pos in range (len(startPoint)): # Cycle through the array
+            #{
+                if(not isinstance(startPoint[pos], int)):
+                #{
+                    invalidStartPoints.append(startPoint[pos])
+                #}
+            #}
+
+            print("== the startPoint(s)" + str(invalidStartPoints) +
+                          "must be in integer form ==")
         #}
         elif(toFindArgs is not None):
         #{
@@ -70,7 +84,7 @@ class Parser:
                 print("== argument: " + str(toFindArgs) +
                   " is not valid ==")
 
-                raise NameError
+                # raise NameError
             # }
         #}
         elif(returnType not in("string", "rowCol")):
@@ -78,16 +92,16 @@ class Parser:
             print("== returnType: " + str(returnType) +
                   " is not valid ==")
 
-            raise NameError
+            # raise NameError
         #}
         elif(instancesIgnored is not None):
         #{
             if(not (isinstance(instancesIgnored, int))): # If not an integer
             #{
                 print("== the number of instances ignored should be"
-                "in integer form ==")
+                      "in integer form ==")
 
-                raise NameError
+                # raise NameError
             #}
         #}
 
@@ -104,16 +118,25 @@ class Parser:
 
         del pos # remove the existence of pos (out of scope)
 
-        foundItem = False # Marks if "toFind" has been found
+        if(toFindType == "iString"): # seperate into words
+        #{
+            fileContents = "".join(fileContents) # cast to a String for further splitting
+            fileContents = fileContents.split() # cast to list x2 splitting(into individual words)
+        #}
+        elif(toFindType == "char"):
+        #{
+            fileContents = "".join(fileContents) # cast to a String for further splitting
+            fileContents = fileContents.split() # cast to list x2 splitting(into individual words)
+            fileContents = " ".join(fileContents) # cast to a String for further splitting(again)
+            fileContents = fileContents.split() # cast to list x3 splitting(into individual chars)
 
-        while(not foundItem):
-        #{  TODO
-            pass
-            break#QWFX
+             # TODO
+
+            print(fileContents)#QWFX
         #}
     #}
 
-    def replace(self, toFInd, toFindArgs, instancesIgnored, row, column,
+    def replace(self, toFind, startPoint,toFindArgs, instancesIgnored,
                   replaceWith, replaceArgs):
     #{TODO
         pass
@@ -124,4 +147,4 @@ class Parser:
 par = Parser("FileExample")
 # find a whole word seperated by spaces, named "qui", with no arguments,
 # return in rowCol form, ignoring no instances of "qui"
-par.find("iString", "qui", None, "rowCol", None)
+par.find("char", "qui", "9g", None, "rowCol", None)
