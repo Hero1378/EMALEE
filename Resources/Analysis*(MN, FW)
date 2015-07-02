@@ -11,29 +11,32 @@
 questions about the changes the user wants to have made to the file. After this, 
 the program should look for these keywords and edit them according to the user's 
 requirements.
+
 1. The program should ask user the type of letter they want to be edited
+
 2. The prgram should ask user the receiver's general information depending on the 
 type letter such as: name, age, gender and if they want to use sincerely or faithfully 
 etc.
+
 3. The program asks the user if they want to change any specific part like the heading,
 title, bottom etc
+
 4. The user should be able to type a word and switch it with another existing word from 
 the letter
-Stuff that program needs to be able to do:
+
+== Stuff that program needs to be able to do ==
+
 1. The prgram should be able to use several different programs and have the ability to 
 let the user add if qequired
+
 2. The program should be able to search for key words and change or switch them according
 to user's desire
+
 3. The program should be aware of headings and titles(which are mostly on the first line)
 and be able to change them if it was neccessary
+
 4. The program should be able to search for a certain word(s) and change it/them with the
 word(s) user inports
-
-
-
-
-
-
 }
 
 == Mock commands ==
