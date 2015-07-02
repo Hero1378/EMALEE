@@ -21,6 +21,7 @@ find:
             -   "-x" READ -x toFindTypes BEFORE toFind
             -   ">x" READ AFTER toFind UNTIL x is found
             -   "<x" READ BEFORE toFind UNTIL x is found
+            -   "*x" READ ALL examples of x (must send back coords)
 ------------------------------------------------------------------------------------------------------------------------
     -   instancesIgnored = how many instances of the toFind is ignored, before the returnType is returned
 ------------------------------------------------------------------------------------------------------------------------
