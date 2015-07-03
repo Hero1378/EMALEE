@@ -79,7 +79,7 @@ class Parser:
         #}
         elif(toFindArgs is not None):
         #{
-            if(("!", "+", "-", ">", "<") not in toFindArgs): # found in
+            if(("!", "+", "-", ">", "<", "*") not in toFindArgs): # found in
             #{
                 print("== argument: " + str(toFindArgs) +
                   " is not valid ==")
