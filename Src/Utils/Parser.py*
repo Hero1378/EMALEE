@@ -7,7 +7,7 @@ class Parser:
 
         self.FILE = None
         self.file = str(file)
-
+                    #NOT DONE CORRECTLY
         try: # Check that file exists, before opening in a+ mode
         #{
             self.FILE = open(str(self.file), "r") # Open in read mode
@@ -17,7 +17,6 @@ class Parser:
             print("== Can't open file: " + str(self.file) +
                   " ==\n\t" + str(error))
 
-            # raise NameError
         #}
         else:
         #{
@@ -25,89 +24,14 @@ class Parser:
         #}
     #}
 
-    def getFileLen(self):
+    def getFileContents(self):
     #{
-        fileLen = 0
-        currLine = "<Undefined>" # The line currently being read
-
-        while(currLine != ""): # Read until EOF
-        #{
-            currLine = self.FILE.readline()
-
-            fileLen += 1
-        #}
-
-        self.FILE.close() # re-open file at first line QWFX SMELL
-        self.FILE = open(self.file, "r+")
-
-        return fileLen
-    #}
-
-    def find(self, toFindType, toFind, startPoint, toFindArgs, returnType,
-              instancesIgnored):
-    #{
-        toFindType = toFindType
-        toFind = toFind
-        toFindArgs = toFindArgs
-        returnType = returnType
-        instancesIgnored = instancesIgnored
-        lengthOfFile = self.getFileLen()
         fileContents = []
-        currLine = "<Undefined>" # The current line being read
+        currLine = "<Undefined>"
 
-        if(toFindType not in("iString", "eString", "char")): # Pre- checks
-        #{
-            print("== toFindType: " + str(toFindType) +
-                  " is not vaild ==")
+        pos = 0 # Loop Counter
 
-            # raise NameError
-        #}
-        elif(startPoint is not None):
-        #{
-            invalidStartPoints = []
-
-            for pos in range (len(startPoint)): # Cycle through the array
-            #{
-                if(not isinstance(startPoint[pos], int)):
-                #{
-                    invalidStartPoints.append(startPoint[pos])
-                #}
-            #}
-
-            print("== the startPoint(s)" + str(invalidStartPoints) +
-                          "must be in integer form ==")
-        #}
-        elif(toFindArgs is not None):
-        #{
-            if(("!", "+", "-", ">", "<", "*") not in toFindArgs): # found in
-            #{
-                print("== argument: " + str(toFindArgs) +
-                  " is not valid ==")
-
-                # raise NameError
-            # }
-        #}
-        elif(returnType not in("string", "rowCol")):
-        #{
-            print("== returnType: " + str(returnType) +
-                  " is not valid ==")
-
-            # raise NameError
-        #}
-        elif(instancesIgnored is not None):
-        #{
-            if(not (isinstance(instancesIgnored, int))): # If not an integer
-            #{
-                print("== the number of instances ignored should be"
-                      "in integer form ==")
-
-                # raise NameError
-            #}
-        #}
-
-        pos = 0 # loop counter
-
-        while((currLine != "") or (pos < MAX_FILE_CACHE)): # Read until EOF
+        while((currLine != "") and (pos < MAX_FILE_CACHE)): # Until EOF
         #{
             currLine = self.FILE.readline()
 
@@ -116,35 +40,89 @@ class Parser:
             pos += 1
         #}
 
-        del pos # remove the existence of pos (out of scope)
+        del pos # Temp var
 
-        if(toFindType == "iString"): # seperate into words
+        fileContents.pop(len(fileContents) - 1) # remove the last defunct instance
+
+        self.FILE.close() # re-open file at first line QWFX SMELL
+        self.FILE = open(self.file, "r+")
+
+        return fileContents
+    #}
+    # Returns an array with the number of lines, and the len(chars) of the longest line
+    def getFileLen(self):
+    #{
+        fileLen = [] # Contains numbOfLines, length of X line
+        lineLengths = [] # Contains the length of the lines read TEMP
+        numbOfLines = 0 # Number of lines in the file
+        lenCurrLine = -1 # The length of the line being read
+        currLine = "<Undefined>" # The line currently being read
+
+        while((currLine != "") and (numbOfLines < MAX_FILE_CACHE)): # Read until EOF
         #{
-            fileContents = "".join(fileContents) # cast to a String for further splitting
-            fileContents = fileContents.split() # cast to list x2 splitting(into individual words)
+            currLine = self.FILE.readline()
+            lenCurrLine = len(currLine)
+
+            lineLengths.append(str(lenCurrLine - 1)) # Remove defunct ""
+
+            numbOfLines += 1
         #}
-        elif(toFindType == "char"):
+
+        numbOfLines -= 1 # Remove defunct ""
+
+        fileLen.append(numbOfLines)
+
+        for pos in range(len(lineLengths)):
         #{
-            fileContents = "".join(fileContents) # cast to a String for further splitting
-            fileContents = fileContents.split() # cast to list x2 splitting(into individual words)
-            fileContents = " ".join(fileContents) # cast to a String for further splitting(again)
-            fileContents = fileContents.split() # cast to list x3 splitting(into individual chars)
-
-             # TODO
-
-            print(fileContents)#QWFX
+            fileLen.append(int(lineLengths[pos])) # add to array in form of int
         #}
+
+        self.FILE.close() # re-open file at first line QWFX SMELL
+        self.FILE = open(self.file, "r+")
+
+        return fileLen
     #}
 
-    def replace(self, toFind, startPoint,toFindArgs, instancesIgnored,
-                  replaceWith, replaceArgs):
-    #{TODO
-        pass
+    def find(self, toFindType, toFind, startPoint):
+    #{
+        toFind = toFind
+        toFindType = toFindType
+        startPoint = startPoint
+        lengthOfFile = self.getFileLen()[0]
+        fileContents = self.getFileContents()
+
+        if(toFindType not in ("string", "char")): # Pre-checks
+        #{
+            raise NameError
+        #}
+        elif(len(toFind) < 1):
+        #{
+            raise NameError
+        #}
+        elif(startPoint is not None):
+        #{
+            if(len(startPoint) > 2): # 2 args should be passed in
+            #{
+                raise NameError
+            #}
+            elif(not (isinstance(startPoint[0], int))): # If not an integer
+            #{
+                raise NameError
+            #}
+            elif(not (isinstance(startPoint[1], int))):
+            #{
+                raise NameError
+            #}
+            elif(len(startPoint[0]) > self.getFileLen()[0]):
+            #{
+                raise NameError # line given doesn't exist
+            #}
+            elif(len(startPoint[1]) > self.getFileLen()[1]):
+            #{
+                raise NameError # line given doesn't exist
+            #}
+        #}
+
+        #TODO parsing ghuff
     #}
 #}
-
-
-par = Parser("FileExample")
-# find a whole word seperated by spaces, named "qui", with no arguments,
-# return in rowCol form, ignoring no instances of "qui"
-par.find("char", "qui", "9g", None, "rowCol", None)
