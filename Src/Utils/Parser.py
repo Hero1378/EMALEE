@@ -90,6 +90,8 @@ class Parser:
         startPoint = startPoint
         lengthOfFile = self.getFileLen()[0]
         fileContents = self.getFileContents()
+        foundItem = False # If the loop has found 'toFind'
+        pos = 0 # Loop counter
 
         if(toFindType not in ("string", "char")): # Pre-checks
         #{
@@ -123,6 +125,17 @@ class Parser:
             #}
         #}
 
-        #TODO parsing ghuff
+        print("len fileContents: ", len(fileContents)) # QWFX
+
+        while((not foundItem) and (pos < len(fileContents))): # loops until found the item, or array end reached
+        #{
+            pass # TODO
+            pos += 1
+        #}
     #}
 #}
+
+file = "FileExample.txt"
+
+p = Parser(file)
+p.find("string", "qui", None)
