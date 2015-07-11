@@ -24,4 +24,5 @@ TOTAL JOBS: FW = 3 | MN = 1       please update!
                           added to.)
 -   [FW] (I) [28/06/2015 | 30/07/2015]-[#]: Start work on framework.
 -   [FW] (I) [28/06/2015 | 15/07/2015]-[#]: Finish writing ParserDoc.
--   [FW] (I) [28/06/2015 | 15/07/2015]-[#]: Write String parser.
+-   [FW] (I) [28/06/2015 | 15/07/2015]-[#]: Write String parser(basics).
+-   [FW] (I) [11/07/2015 | 25/07/2015]-[#]: Deal with caps.

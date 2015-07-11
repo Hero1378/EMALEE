@@ -26,6 +26,7 @@ class Parser:
 
     def getFileContents(self):
     #{
+        numbOfLines = self.getFileLen()
         fileContents = []
         currLine = "<Undefined>"
 
@@ -77,27 +78,31 @@ class Parser:
             fileLen.append(int(lineLengths[pos])) # add to array in form of int
         #}
 
-        self.FILE.close() # re-open file at first line QWFX SMELL
+        fileLen.pop(len(fileLen) - 1) # Remove unwanted "-1"
+
+        self.FILE.close() # R-open file at first line QWFX SMELL
         self.FILE = open(self.file, "r+")
 
         return fileLen
     #}
 
-    def find(self, toFindType, toFind, startPoint):
+    def findString(self, toFind, startPoint):
     #{
         toFind = toFind
-        toFindType = toFindType
+        toFindPosition = [None, None] # Contains where toFind is found
         startPoint = startPoint
-        lengthOfFile = self.getFileLen()[0]
+        lengthOfFile = self.getFileLen() # Gets all of the length (lines, length of lines)
+        numbOfLines = lengthOfFile[0]
         fileContents = self.getFileContents()
+        currLine = "" # Line being read
+        currChar = "" # Character being read
+        currLinePos = 0 # Line being read (position)
+        currCharPos = 0 # Character being read (position)
+        lenCurrLine = -1 # Length of the line being read
         foundItem = False # If the loop has found 'toFind'
         pos = 0 # Loop counter
 
-        if(toFindType not in ("string", "char")): # Pre-checks
-        #{
-            raise NameError
-        #}
-        elif(len(toFind) < 1):
+        if(toFind is None):
         #{
             raise NameError
         #}
@@ -115,27 +120,75 @@ class Parser:
             #{
                 raise NameError
             #}
-            elif(len(startPoint[0]) > self.getFileLen()[0]):
+            elif(startPoint[0] > self.getFileLen()[0]):
             #{
                 raise NameError # line given doesn't exist
             #}
-            elif(len(startPoint[1]) > self.getFileLen()[1]):
+            elif(startPoint[1] > self.getFileLen()[1]):
             #{
                 raise NameError # line given doesn't exist
             #}
         #}
+        else:
+        #{
+            startPoint = [0, 0] # Default start point line 0, col 0
+        #}
 
-        print("len fileContents: ", len(fileContents)) # QWFX
+        currLinePos = startPoint[0]
+        currCharPos = startPoint[1]
 
         while((not foundItem) and (pos < len(fileContents))): # loops until found the item, or array end reached
         #{
-            pass # TODO
+            currLine = fileContents[currLinePos].split() # Converts to individual words
+            lenCurrLine = len(currLine) # "+1" as the 1st elemet is how many lines in the file
+
+            while((not foundItem) and (currCharPos < lenCurrLine)): # Until end of line
+            #{
+                currChar = currLine[currCharPos]
+
+                if(currChar == toFind):
+                #{
+                    foundItem = True
+
+                    toFindPosition[0] = currLinePos # Line Number
+                    toFindPosition[1] = currCharPos # Column Number
+                #}
+
+                currCharPos += 1
+            #}
+
+            currCharPos = 0 # Back to default
+
+            currLinePos += 1
             pos += 1
         #}
+
+        if(not foundItem):
+        #{
+                print("String: '" + str(toFind) + "' was not found!")
+                raise EOFError # May be incorrect
+        #}
+        else:
+        #{
+            return toFindPosition
+        #}
+    #}
+
+    def findChar(self):
+    #{
+        # TODO
+        pass #QWFX
+    #}
+
+    def replace(self):
+    #{
+        # TODO
+        pass #QWFX
     #}
 #}
 
 file = "FileExample.txt"
 
 p = Parser(file)
-p.find("string", "qui", None)
+
+print(p.findString("qui", None)) # Example

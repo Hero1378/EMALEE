@@ -1,12 +1,10 @@
-find:
+findString:
 
 DESCRIPTION: Locates all instances of the word provided.
+             Will return Line and column in machine amnner (starting from 0, not 1)
+             To make human- readable, add "1" to Line and column number. N.B Punctuation marks are not Strings
 
--   PRAMS: (toFindType, toFind, startPoint)
-
-    -   toFindType:
-        -   string = a word separated with spaces, or some form of punctuation.
-        -   char = a character either between punctuation or other characters.
+-   PRAMS: (toFind, startPoint)
         
     -   toFind = the string to find.
     

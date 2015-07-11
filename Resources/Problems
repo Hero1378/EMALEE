@@ -1,0 +1,3 @@
+Need to write  a method to deal with Caps. At the moment, the file has to be converted to lowercase, or the"find"
+Method has to be called with case-sensative Prams i.e find("string", "Qui", None), find("string", "qui", None).
+Marker Method would be Private.
