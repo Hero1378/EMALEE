@@ -102,7 +102,7 @@ class Parser:
         foundItem = False # If the loop has found 'toFind'
         pos = 0 # Loop counter
 
-        if(toFind is None):
+        if(toFind is None): # TODO Remove this Try- like crap, pass in object instead
         #{
             raise NameError
         #}
