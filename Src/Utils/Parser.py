@@ -80,10 +80,54 @@ class Parser:
 
         fileLen.pop(len(fileLen) - 1) # Remove unwanted "-1"
 
+
         self.FILE.close() # R-open file at first line QWFX SMELL
         self.FILE = open(self.file, "r+")
 
         return fileLen
+    #}
+
+    def markCarrageReturns(self, listToMark): # makes carrage returns visable to the program(post splitting)
+    #{
+        formattedList = listToMark
+        pos = 0 # Loop counter
+
+        while(("\n" not in formattedList) and (pos < len(formattedList))):
+        #{
+            pass # QWFX
+            pos += 1
+        #}
+
+        return formattedList
+    #}
+
+    def findCapitalLetters(self): # Returns the position of captials
+    #{
+        fileContents = self.getFileContents()
+        fileContents = self.markCarrageReturns(fileContents)
+        fileContents = "".join(fileContents).split() # cast to string to format seperate into strings
+        lengthOfFile = self.getFileLen()[0] # SMELL separate into methods
+        captials = [] # Contains the position(s) of all capitals found in file
+        lineNumber = 0 # Line being read
+        currString = "" # Current string being read
+
+        for pos in range(lengthOfFile):
+        #{
+            currString = fileContents[pos]
+
+            if(currString == "¬|¬"): # SMELL
+            #{
+                lineNumber += 1
+            #}
+
+            if(currString.isupper()):
+            #{
+                captials.append(lineNumber) # line
+                captials.append(pos) # number of chars across the line
+            #}
+        #}
+
+        return captials
     #}
 
     def findString(self, toFind, startPoint):
@@ -191,4 +235,8 @@ file = "FileExample.txt"
 
 p = Parser(file)
 
+startPoint = [12, 12]
+
+print(p.findCapitalLetters())
+# print(p.findString("qui", startPoint)) # Example
 print(p.findString("qui", None)) # Example
