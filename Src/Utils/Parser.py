@@ -87,7 +87,7 @@ class Parser:
         return fileLen
     #}
 
-    def markCarrageReturns(self, listToMark): # makes carrage returns visable to the program(post splitting)
+    def markCarriageReturns(self, listToMark): # makes Carriage returns visable to the program(post splitting)
     #{
         formattedList = listToMark
         pos = 0 # Loop counter
@@ -104,7 +104,7 @@ class Parser:
     def findCapitalLetters(self): # Returns the position of captials
     #{
         fileContents = self.getFileContents()
-        fileContents = self.markCarrageReturns(fileContents)
+        fileContents = self.markCarriageReturns(fileContents)
         fileContents = "".join(fileContents).split() # cast to string to format seperate into strings
         lengthOfFile = self.getFileLen()[0] # SMELL separate into methods
         captials = [] # Contains the position(s) of all capitals found in file
