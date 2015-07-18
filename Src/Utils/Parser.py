@@ -80,54 +80,86 @@ class Parser:
 
         fileLen.pop(len(fileLen) - 1) # Remove unwanted "-1"
 
-
         self.FILE.close() # R-open file at first line QWFX SMELL
         self.FILE = open(self.file, "r+")
 
         return fileLen
     #}
 
-    def markCarriageReturns(self, listToMark): # makes Carriage returns visable to the program(post splitting)
+    def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting)
     #{
-        formattedList = listToMark
-        pos = 0 # Loop counter
+        formattedList = listToMark # Same list as passed in, but with carrage returns marked
+        tempElement = "" # Holds the nth element being parsed
 
-        while(("\n" not in formattedList) and (pos < len(formattedList))):
+        for i in range(len(formattedList)):
         #{
-            pass # QWFX
-            pos += 1
+            if(i == (len(formattedList) - 1)): # don't add "¬|¬" to end of doc
+            #{
+                continue
+            #}
+            else:
+            #{
+                formattedList[i] = formattedList[i] + str( "|") # Mark end of line
+            #}
         #}
 
         return formattedList
     #}
 
-    def findCapitalLetters(self): # Returns the position of captials
+    def getTotalNumbOfChars(self): # Adds up number of chars
     #{
-        fileContents = self.getFileContents()
-        fileContents = self.markCarriageReturns(fileContents)
-        fileContents = "".join(fileContents).split() # cast to string to format seperate into strings
-        lengthOfFile = self.getFileLen()[0] # SMELL separate into methods
-        captials = [] # Contains the position(s) of all capitals found in file
-        lineNumber = 0 # Line being read
-        currString = "" # Current string being read
+        rawLength = self.getFileLen()
+        rawLength.pop(0) # ignore first element
+        totalLength = 0 # Numb of chars in file
 
-        for pos in range(lengthOfFile):
+        for i in range(len(rawLength)):
         #{
-            currString = fileContents[pos]
-
-            if(currString == "¬|¬"): # SMELL
-            #{
-                lineNumber += 1
-            #}
-
-            if(currString.isupper()):
-            #{
-                captials.append(lineNumber) # line
-                captials.append(pos) # number of chars across the line
-            #}
+            totalLength += rawLength[i]
         #}
 
-        return captials
+        return totalLength
+    #}
+
+    def getTotalNumberOfStrings(self):
+    #{
+        separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
+        totalLength = len(separatedFile)
+
+        return totalLength
+    #}
+
+    def findCapitalLetters(self): # Returns the position of captials
+    #{
+        fileContents = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
+        capitalLocations = [] # line, chars across
+        lineNumber = 0 # number of line currently being read
+        totalLengthOfFile = self.getTotalNumbOfChars() # total number of chars in the file
+        currChar = "" # Current char being read
+        charsAcross = 0 # Number of chars that have been read(column)
+        positionInCurrentLine = 0 # like chars across ,but resets each line
+
+        for charsAcross in range(totalLengthOfFile):
+        #{
+            currChar = fileContents[charsAcross]
+
+            if(currChar == "|"): # SMELL means '|' can't be used
+            #{
+                lineNumber += 1
+
+                positionInCurrentLine = 0 # set back to default as upper has been found
+            #}
+
+            if(currChar.isupper()):
+            #{
+                capitalLocations.append(lineNumber)
+                capitalLocations.append(positionInCurrentLine)
+            #}
+
+            charsAcross += 1
+            positionInCurrentLine += 1
+        #}
+
+        return capitalLocations
     #}
 
     def findString(self, toFind, startPoint):
@@ -235,8 +267,4 @@ file = "FileExample.txt"
 
 p = Parser(file)
 
-startPoint = [12, 12]
-
 print(p.findCapitalLetters())
-# print(p.findString("qui", startPoint)) # Example
-print(p.findString("qui", None)) # Example
