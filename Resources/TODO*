@@ -26,4 +26,5 @@ TOTAL JOBS: FW = 3 | MN = 1       please update!
   ¬   [FW] (I) [12/07/2015 | 18/07/2015]-[3]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].(Can't recreate)
 ¬   [FW] (I) [28/06/2015 | 16/07/2015]-[#]: Write String parser(basics).
 ¬   [FW] (C) [12/07/2015 | 15/07/2015]-[#]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].
-¬   [FW] (C) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
+¬   [FW] (I) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
+-   [FW] (I) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
