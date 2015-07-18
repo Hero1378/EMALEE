@@ -29,3 +29,5 @@ TOTAL JOBS: FW = 3 | MN = 1       please update!
 ¬   [FW] (I) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
 -   [FW] (I) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
     -[FW] (i) [#|#|-[#]: Write Wiki
+-   [FW] (N) [#|#]-[#]: Write getlineLen() and getNumbOfLines() instead of getLength()
+    -   [FW] (N) [#|#]-[#]: Optimise by keeping file in cache
