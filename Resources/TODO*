@@ -28,3 +28,4 @@ TOTAL JOBS: FW = 3 | MN = 1       please update!
 ¬   [FW] (C) [12/07/2015 | 15/07/2015]-[#]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].
 ¬   [FW] (I) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
 -   [FW] (I) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
+    -[FW] (i) [#|#|-[#]: Write Wiki
