@@ -99,7 +99,7 @@ class Parser:
             #}
             else:
             #{
-                formattedList[i] = formattedList[i] + str( "|") # Mark end of line
+                formattedList[i] = formattedList[i] + str("|") # Mark end of line
             #}
         #}
 
