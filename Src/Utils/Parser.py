@@ -93,7 +93,7 @@ class Parser:
 
         for i in range(len(formattedList)):
         #{
-            if(i == (len(formattedList) - 1)): # don't add "¬|¬" to end of doc
+            if(i == (len(formattedList) - 1)): # don't add "|" to end of doc
             #{
                 continue
             #}
