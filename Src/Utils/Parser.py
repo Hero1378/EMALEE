@@ -1,38 +1,63 @@
 class Parser:
 #{
-    def __init__(self, file):
+    def __init__(self, newFileName):
     #{
         global MAX_FILE_CACHE # how many lines can be read, before loops terminate
         MAX_FILE_CACHE = 500   # avoids massivly-long loops
 
         self.FILE = None
-        self.file = str(file)
+        self.fileName = str(newFileName)
                     #NOT DONE CORRECTLY
         try: # Check that file exists, before opening in a+ mode
         #{
-            self.FILE = open(str(self.file), "r") # Open in read mode
+            self.FILE = open(str(self.fileName), "r") # Open in read mode
         #}
         except(IOError) as error:
         #{
-            print("== Can't open file: " + str(self.file) +
+            print("== Can't open file: " + str(self.fileName) +
                   " ==\n\t" + str(error))
 
         #}
         else:
         #{
-            self.FILE = open(str(self.file), "r+") # Open in read and WRITE mode
+            self.FILE = open(str(self.fileName), "r+") # Open in read and WRITE mode
         #}
+    #}
+
+    def getNumbOfLines(self):
+    #{
+        numbOfLines = 0
+        currLine = ""
+
+        for currLine in self.FILE: # Read until EOF
+        #{
+            currLine = self.FILE.readline()
+
+            if(numbOfLines == MAX_FILE_CACHE): # Avoid huge loops
+            #{
+                break
+            #}
+
+            numbOfLines += 1
+        #}
+
+        numbOfLines -= 1 # remove unwanted blank final line
+
+        self.FILE.close() # re-open file at first line QWFX SMELL
+        self.FILE = open(self.fileName, "r+")
+
+        return numbOfLines
     #}
 
     def getFileContents(self):
     #{
-        numbOfLines = self.getFileLen()
+        lengthOfFile = self.getNumbOfLines()
         fileContents = []
         currLine = "<Undefined>"
 
         pos = 0 # Loop Counter
 
-        while((currLine != "") and (pos < MAX_FILE_CACHE)): # Until EOF
+        while(pos < lengthOfFile): # Until EOF
         #{
             currLine = self.FILE.readline()
 
@@ -46,44 +71,26 @@ class Parser:
         fileContents.pop(len(fileContents) - 1) # remove the last defunct instance
 
         self.FILE.close() # re-open file at first line QWFX SMELL
-        self.FILE = open(self.file, "r+")
+        self.FILE = open(self.fileName, "r+")
 
         return fileContents
     #}
-    # Returns an array with the number of lines, and the len(chars) of the longest line
-    def getFileLen(self):
+
+    def getLineLengths(self):
     #{
-        fileLen = [] # Contains numbOfLines, length of X line
-        lineLengths = [] # Contains the length of the lines read TEMP
-        numbOfLines = 0 # Number of lines in the file
-        lenCurrLine = -1 # The length of the line being read
-        currLine = "<Undefined>" # The line currently being read
+        fileContents = self.getFileContents()
+        lengthOfFile = self.getNumbOfLines()
+        lineLengths = [] # Contains the length of each line read
+        currLine = "" # line being read
 
-        while((currLine != "") and (numbOfLines < MAX_FILE_CACHE)): # Read until EOF
+        for pos in range(lengthOfFile):
         #{
-            currLine = self.FILE.readline()
-            lenCurrLine = len(currLine)
+            currLine = fileContents[pos]
 
-            lineLengths.append(str(lenCurrLine - 1)) # Remove defunct ""
-
-            numbOfLines += 1
+            lineLengths.append(int(len(currLine)))
         #}
 
-        numbOfLines -= 1 # Remove defunct ""
-
-        fileLen.append(numbOfLines)
-
-        for pos in range(len(lineLengths)):
-        #{
-            fileLen.append(int(lineLengths[pos])) # add to array in form of int
-        #}
-
-        fileLen.pop(len(fileLen) - 1) # Remove unwanted "-1"
-
-        self.FILE.close() # R-open file at first line QWFX SMELL
-        self.FILE = open(self.file, "r+")
-
-        return fileLen
+        return lineLengths # No defunct line, as relies on method that strips blank line (getNumbOfLines)
     #}
 
     def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting)
@@ -108,7 +115,7 @@ class Parser:
 
     def getTotalNumbOfChars(self): # Adds up number of chars
     #{
-        rawLength = self.getFileLen()
+        rawLength = self.getNumbOfLines()
         rawLength.pop(0) # ignore first element
         totalLength = 0 # Numb of chars in file
 
@@ -167,8 +174,8 @@ class Parser:
         toFind = toFind
         toFindPosition = [None, None] # Contains where toFind is found
         startPoint = startPoint
-        lengthOfFile = self.getFileLen() # Gets all of the length (lines, length of lines)
-        numbOfLines = lengthOfFile[0]
+        lengthOfFile = self.getNumbOfLines() # Gets all of the length (lines, length of lines)
+        numbOfLines = self.getNumbOfLines()
         fileContents = self.getFileContents()
         currLine = "" # Line being read
         currChar = "" # Character being read
@@ -196,11 +203,11 @@ class Parser:
             #{
                 raise NameError
             #}
-            elif(startPoint[0] > self.getFileLen()[0]):
+            elif(startPoint[0] > self.getNumbOfLines()):
             #{
                 raise NameError # line given doesn't exist
             #}
-            elif(startPoint[1] > self.getFileLen()[1]):
+            elif(startPoint[1] > self.getLineLengths()[0]):
             #{
                 raise NameError # line given doesn't exist
             #}
@@ -267,4 +274,4 @@ file = "FileExample.txt"
 
 p = Parser(file)
 
-print(p.findCapitalLetters())
+print(p.getFileContents())
