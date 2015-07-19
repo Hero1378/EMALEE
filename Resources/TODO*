@@ -32,3 +32,4 @@ TOTAL JOBS ONGOING: FW = 3 | MN = 1       please update!
 -   [FW] (C) [#|#]-[#]: Write getlineLen() and getNumbOfLines() instead of getLength()
     -   [FW] (N) [#|#]-[#]: Optimise by keeping file in cache
 -   [FW] (C) [#|#]-[#]: Replace dodgy while loops with FOR
+-   [FW] (N) [#|#]-[#]: Update ParserDoc
