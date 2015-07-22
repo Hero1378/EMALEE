@@ -35,6 +35,9 @@ TOTAL JOBS ONGOING: FW = 6 | MN = 1       please update!
     -   [FW] (N) [#|#]-[#]: Update ParserDoc
     -   [FW] (C) [22/07/2015|24/07/2015]-[#]: re-write markNewLines(), so that if a '|' is already present,
             another cannot be written next to it. Also requires methods to get current line, and char (SEE BELOW).
-    -   [FW] (N) [22/07/2015|24/07/2015]-[#]: Write methods to get current line, and char. These will be needed in
-            findAllStrings(), as to delete the nth element that has been found, the line number and column must be found.
+        -   [FW] (N) [22/07/2015|24/07/2015]-[#]: Write methods to get current line, and char. These will be needed in
+                findAllStrings(), as to delete the nth element that has been found, the line number and column must be found.
     -   [FW] (N) [#|#]-[#]: Write method 'getExistingBars()' (see problems).
+    -   [FW] (N) [#|#]-[#]: Write method 'findAllStrings'.
+    -   [FW] (N) [#|#]-[#]: Write method 'findChar'
+    -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
