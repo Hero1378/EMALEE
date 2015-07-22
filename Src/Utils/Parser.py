@@ -16,32 +16,17 @@ class Parser:
         #{
             print("== Can't open file: " + str(self.fileName) +
                   " ==\n\t" + str(error))
-
         #}
         else:
         #{
+            self.FILE.close()
             self.FILE = open(str(self.fileName), "r+") # Open in read and WRITE mode
         #}
     #}
 
     def getNumbOfLines(self):
     #{
-        numbOfLines = 0
-        currLine = ""
-
-        for currLine in self.FILE: # Read until EOF
-        #{
-            currLine = self.FILE.readline()
-
-            if(numbOfLines == MAX_FILE_CACHE): # Avoid huge loops
-            #{
-                break
-            #}
-
-            numbOfLines += 1
-        #}
-
-        numbOfLines -= 1 # remove unwanted blank final line
+        numbOfLines = len(self.FILE.readlines())
 
         self.FILE.close() # re-open file at first line QWFX SMELL
         self.FILE = open(self.fileName, "r+")
@@ -57,7 +42,7 @@ class Parser:
 
         pos = 0 # Loop Counter
 
-        while(pos < lengthOfFile): # Until EOF
+        while(pos <= lengthOfFile): # Until EOF
         #{
             currLine = self.FILE.readline()
 
@@ -85,7 +70,7 @@ class Parser:
 
         for pos in range(lengthOfFile):
         #{
-            currLine = fileContents[pos]
+            currLine = fileContents[pos - 1] # '-1' as start from '0' not '1'
 
             lineLengths.append(int(len(currLine)))
         #}
@@ -95,33 +80,53 @@ class Parser:
 
     def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting)
     #{
-        formattedList = listToMark # Same list as passed in, but with carrage returns marked
+        if(listToMark is None):
+        #{
+            formattedList = self.getFileContents()
+        #}
+        else:
+        #{
+            formattedList = listToMark # Same list as passed in, but with carrage returns marked
+        #}
+
         tempElement = "" # Holds the nth element being parsed
+        tempCheckElement = "".join(tempElement)
 
         for i in range(len(formattedList)):
         #{
             if(i == (len(formattedList) - 1)): # don't add "|" to end of doc
             #{
-                continue
+                pass
             #}
             else:
             #{
-                formattedList[i] = formattedList[i] + str("|") # Mark end of line
+                if(formattedList[i + 1] != "|"): # Check to see if list has already been marked SMELL
+                #{
+                    formattedList[i] = formattedList[i] + str("|") # Mark end of line TODO using getCurrColumn for
+                #}
             #}
         #}
 
         return formattedList
     #}
 
-    def getTotalNumbOfChars(self): # Adds up number of chars
+    def getTotalNumbOfChars(self, toFindIn): # Adds up number of chars
     #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
         rawLength = self.getNumbOfLines()
-        rawLength.pop(0) # ignore first element
         totalLength = 0 # Numb of chars in file
 
-        for i in range(len(rawLength)):
+        for i in range(len(fileContents)):
         #{
-            totalLength += rawLength[i]
+            totalLength += len(fileContents[i])
         #}
 
         return totalLength
@@ -169,14 +174,23 @@ class Parser:
         return capitalLocations
     #}
 
-    def findString(self, toFind, startPoint):
+    def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
     #{
         toFind = toFind
         toFindPosition = [None, None] # Contains where toFind is found
         startPoint = startPoint
         lengthOfFile = self.getNumbOfLines() # Gets all of the length (lines, length of lines)
         numbOfLines = self.getNumbOfLines()
-        fileContents = self.getFileContents()
+
+        if(toFindIn is None): # if nothing given
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
         currLine = "" # Line being read
         currChar = "" # Character being read
         currLinePos = 0 # Line being read (position)
@@ -246,15 +260,12 @@ class Parser:
             pos += 1
         #}
 
-        if(not foundItem):
-        #{
-                print("String: '" + str(toFind) + "' was not found!")
-                raise EOFError # May be incorrect
-        #}
-        else:
-        #{
-            return toFindPosition
-        #}
+        return toFindPosition
+    #}
+
+    def findAllStrings(self, toFind, toFindIn, newStartPoint): # TODO
+    #{
+        pass
     #}
 
     def findChar(self):
@@ -272,6 +283,4 @@ class Parser:
 
 file = "FileExample.txt"
 
-p = Parser(file)
-
-print(p.getFileContents())
+p_1 = Parser(file)
