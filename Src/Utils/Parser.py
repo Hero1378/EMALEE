@@ -125,7 +125,7 @@ class Parser:
         return totalLength
     #}
 
-    def getTotalNumberOfStrings(self):
+    def getTotalNumbOfStrings(self):
     #{
         separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
         totalLength = len(separatedFile)
