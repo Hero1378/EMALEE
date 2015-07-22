@@ -78,8 +78,11 @@ class Parser:
         return lineLengths # No defunct line, as relies on method that strips blank line (getNumbOfLines)
     #}
 
-    def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting)
+    def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting) and pre joining
     #{
+        formattedList = listToMark
+        currString = "" # The current string being parsed
+
         if(listToMark is None):
         #{
             formattedList = self.getFileContents()
@@ -89,21 +92,11 @@ class Parser:
             formattedList = listToMark # Same list as passed in, but with carrage returns marked
         #}
 
-        tempElement = "" # Holds the nth element being parsed
-        tempCheckElement = "".join(tempElement)
-
-        for i in range(len(formattedList)):
+        for i in range(len(formattedList)): # SMELL can't use '|'
         #{
-            if(i == (len(formattedList) - 1)): # don't add "|" to end of doc
+            if(("\n" in formattedList[i]) and (" |" not in formattedList[i])): # Chekc if not already been formatted
             #{
-                pass
-            #}
-            else:
-            #{
-                if(formattedList[i + 1] != "|"): # Check to see if list has already been marked SMELL
-                #{
-                    formattedList[i] = formattedList[i] + str("|") # Mark end of line TODO using getCurrColumn for
-                #}
+                formattedList[i] += " |" # space to seperat bar from existing string
             #}
         #}
 
