@@ -1,3 +1,5 @@
 Commas being interpreted alongside whole words.
 Can't use '|' in doc, as interpreted as newlines > Can fix by writing method 'getExistingBars', then when parsing,
 exclude the coords of the existing bars returned by the method above.
+
+TIDDLES? CAN'T YOU SEE I'M TESTING HERE!?!?
