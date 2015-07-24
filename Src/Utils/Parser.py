@@ -78,7 +78,51 @@ class Parser:
         return lineLengths # No defunct line, as relies on method that strips blank line (getNumbOfLines)
     #}
 
-    def markNewLines(self, listToMark): # makes carrage returns visable to the program(post splitting) and pre joining
+    def getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
+    #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents() # file is default
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+        lengthOfFile = self.getNumbOfLines()
+        currChar = "" # Current line being read (char)
+        currLine = "" # Current character being read (String)
+        currLineNumber = 0 # Current line being read (numerical)
+        currCharNumber = 0 # Current character being read (numerical)
+        barLocations = [] # currLine, currChar
+
+        for pos in range(lengthOfFile):
+        #{
+            currLine = fileContents[pos]
+            currLine = "".join(currLine)
+
+            if("|" in currLine): # save time
+            #{
+                for i in range(len(currLine)):
+                #{
+                    currCharNumber += 1
+
+                    if("|" in currLine[i]):
+                    #{
+                        barLocations.append(currLineNumber)
+                        barLocations.append(currCharNumber - 1) # '-1' to counteract machine starting from 0
+                    #}                                            whereas this variable starts from 1
+                #}
+
+                currCharNumber = 0 # reset as on new line
+            #}
+
+            currLineNumber += 1 # after loop, as machine starts from 0
+        #}
+
+        return barLocations
+    #}
+
+    def markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
     #{
         formattedList = listToMark
         currString = "" # The current string being parsed
@@ -277,3 +321,5 @@ class Parser:
 file = "FileExample.txt"
 
 p_1 = Parser(file)
+
+print(p_1.getExistingBars(None))
