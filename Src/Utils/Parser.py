@@ -38,7 +38,7 @@ class Parser:
     #{
         lengthOfFile = self.getNumbOfLines()
         fileContents = []
-        currLine = "<Undefined>"
+        currLine     = "<Undefined>"
 
         pos = 0 # Loop Counter
 
@@ -65,8 +65,8 @@ class Parser:
     #{
         fileContents = self.getFileContents()
         lengthOfFile = self.getNumbOfLines()
-        lineLengths = [] # Contains the length of each line read
-        currLine = "" # line being read
+        lineLengths  = [] # Contains the length of each line read
+        currLine     = "" # line being read
 
         for pos in range(lengthOfFile):
         #{
@@ -89,12 +89,12 @@ class Parser:
             fileContents = toFindIn
         #}
         
-        lengthOfFile = self.getNumbOfLines()
-        currChar = "" # Current line being read (char)
-        currLine = "" # Current character being read (String)
+        lengthOfFile   = self.getNumbOfLines()
+        currChar       = "" # Current line being read (char)
+        currLine       = "" # Current character being read (String)
         currLineNumber = 0 # Current line being read (numerical)
         currCharNumber = 0 # Current character being read (numerical)
-        barLocations = [] # currLine, currChar
+        barLocations   = [] # currLine, currChar
 
         for pos in range(lengthOfFile):
         #{
@@ -126,7 +126,7 @@ class Parser:
     def markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
     #{
         formattedList = listToMark
-        currString = "" # The current string being parsed
+        currString    = "" # The current string being parsed
 
         if(listToMark is None):
         #{
@@ -159,7 +159,7 @@ class Parser:
             fileContents = toFindIn
         #}
 
-        rawLength = self.getNumbOfLines()
+        rawLength   = self.getNumbOfLines()
         totalLength = 0 # Numb of chars in file
 
         for i in range(len(fileContents)):
@@ -173,19 +173,19 @@ class Parser:
     def getTotalNumbOfStrings(self):
     #{
         separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
-        totalLength = len(separatedFile)
+        totalLength   = len(separatedFile)
 
         return totalLength
     #}
 
     def findCapitalLetters(self): # Returns the position of captials
     #{
-        fileContents = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
-        capitalLocations = [] # line, chars across
-        lineNumber = 0 # number of line currently being read
-        totalLengthOfFile = self.getTotalNumbOfChars() # total number of chars in the file
-        currChar = "" # Current char being read
-        charsAcross = 0 # Number of chars that have been read(column)
+        fileContents          = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
+        capitalLocations      = [] # line, chars across
+        lineNumber            = 0 # number of line currently being read
+        totalLengthOfFile     = self.getTotalNumbOfChars() # total number of chars in the file
+        currChar              = "" # Current char being read
+        charsAcross           = 0 # Number of chars that have been read(column)
         positionInCurrentLine = 0 # like chars across ,but resets each line
 
         for charsAcross in range(totalLengthOfFile):
@@ -214,11 +214,11 @@ class Parser:
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
     #{
-        toFind = toFind
+        toFind         = toFind
         toFindPosition = [None, None] # Contains where toFind is found
-        startPoint = startPoint
-        lengthOfFile = self.getNumbOfLines() # Gets all of the length (lines, length of lines)
-        numbOfLines = self.getNumbOfLines()
+        startPoint     = startPoint
+        lengthOfFile   = self.getNumbOfLines() # Gets all of the length (lines, length of lines)
+        numbOfLines    = self.getNumbOfLines()
 
         if(toFindIn is None): # if nothing given
         #{
@@ -229,13 +229,13 @@ class Parser:
             fileContents = toFindIn
         #}
 
-        currLine = "" # Line being read
-        currChar = "" # Character being read
+        currLine    = "" # Line being read
+        currChar    = "" # Character being read
         currLinePos = 0 # Line being read (position)
         currCharPos = 0 # Character being read (position)
         lenCurrLine = -1 # Length of the line being read
-        foundItem = False # If the loop has found 'toFind'
-        pos = 0 # Loop counter
+        foundItem   = False # If the loop has found 'toFind'
+        pos         = 0 # Loop counter
 
         if(toFind is None): # TODO Remove this Try- like crap, pass in object instead
         #{
