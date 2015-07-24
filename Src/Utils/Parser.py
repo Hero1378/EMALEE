@@ -88,6 +88,7 @@ class Parser:
         #{
             fileContents = toFindIn
         #}
+        
         lengthOfFile = self.getNumbOfLines()
         currChar = "" # Current line being read (char)
         currLine = "" # Current character being read (String)
