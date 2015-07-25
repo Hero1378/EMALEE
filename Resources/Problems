@@ -6,3 +6,5 @@ exclude the coords of the existing bars returned by the method above.
                     #}                                            whereas this variable starts from 1
 
                     TAKE NOTE OF TO AVOID POTENTIAL SMELL
+
+Can't find string ending or starting with punctuation '()[]{},.?|\!"£$%^&*' > do 'remove and get punctuation methods.

@@ -183,7 +183,7 @@ class Parser:
         fileContents          = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
         capitalLocations      = [] # line, chars across
         lineNumber            = 0 # number of line currently being read
-        totalLengthOfFile     = self.getTotalNumbOfChars() # total number of chars in the file
+        totalLengthOfFile     = self.getTotalNumbOfChars(None) # total number of chars in the file
         currChar              = "" # Current char being read
         charsAcross           = 0 # Number of chars that have been read(column)
         positionInCurrentLine = 0 # like chars across ,but resets each line
@@ -323,4 +323,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.getExistingBars(None))
+print(p_1.findString("pariatur?", None, None))
