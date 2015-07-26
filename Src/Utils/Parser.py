@@ -1,5 +1,5 @@
-class Parser: # excuse the terrible practice of modifing methods based upon their
-#{              prams, this is afterall a prototype.
+class Parser: # excuse the terrible practice of modifying methods based upon their
+#{              prams, after all this is a prototype.
     def __init__(self, newFileName):
     #{
         global MAX_FILE_CACHE # how many lines can be read, before loops terminate
