@@ -43,3 +43,4 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
     -   [FW] (N) [#|#]-[#]: Write method 'findChar'
     -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
     -   [FW] (N) [#|#]-[#]: Write method 'getExistingPunctuation and removePunctuation (see problems)'
+*   -   [FW] (N) [#|#]-[#]: Bundle array returns as nth D arrays i.e. BEFORE = [0, 12, 5, 45] AFTER = [[0, 12], [5, 45]]

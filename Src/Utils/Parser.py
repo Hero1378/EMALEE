@@ -1,5 +1,5 @@
-class Parser:
-#{
+class Parser: # excuse the terrible practice of modifing methods based upon their
+#{              prams, this is afterall a prototype.
     def __init__(self, newFileName):
     #{
         global MAX_FILE_CACHE # how many lines can be read, before loops terminate
@@ -212,6 +212,112 @@ class Parser:
         return capitalLocations
     #}
 
+    def findPunctuation(self, startPoint, toFindIn):
+    #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        if(startPoint is None):
+        #{
+            currLine       = "" # Current line being read
+            currChar       = "" # Current char being read
+            currLineNumber = 0 # Numerical rep of line being read
+            currCharNumber = 0 # Numerical rep of column being read
+        #}
+        else:
+        #{
+            currLineNumber = startPoint[0]
+            currCharNumber = startPoint[1]
+            currLine       = fileContents[currLineNumber]
+            currCharNumber = fileContents[currCharNumber]
+        #}
+
+        lengthOfFile  = self.getNumbOfLines()
+        punctuation   = [",", ".", "(", ")", "!", "", '"', "£", "$", "%", "^",
+                         "&", "*", "[", "]", "{", "}", "`", "¬", "|", " \ ", ":",
+                         ";", "~", "@", "-", "_"] # Which fool decided to use Python!
+        puncPositions = [] # Line number, char
+
+        for i in range(lengthOfFile):
+        #{
+            currLine = fileContents[i]
+
+            for pos in range(len(currLine)):
+            #{
+                currChar = currLine[pos]
+                currCharNumber += 1
+
+                if(currChar in punctuation):
+                #{
+                    puncPositions.append(currLineNumber)
+                    puncPositions.append(currCharNumber)
+                #}
+            #}
+
+            currCharNumber = 0 # re-set back to default
+            currLineNumber += 1 # after, to make statement above valid
+        #}
+
+        return puncPositions
+    #}
+
+    def removePunctuation(self, punctuationCoords, startPoint, toFindIn):
+    #{
+        punctuation   = [",", ".", "(", ")", "!", "", '"', "£", "$", "%", "^",
+                         "&", "*", "[", "]", "{", "}", "`", "¬", "|", " \ ", ":",
+                         ";", "~", "@", "-", "_"]
+
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        if(startPoint is None):
+        #{
+            currLine       = ""
+            currChar       = ""
+            currLineNumber = 0
+            currCharNumber = 0
+        #}
+        else:
+        #{
+            currLineNumber = startPoint[0]
+            currCharNumber = startPoint[1]
+            currLine       = ""
+            currChar       = ""
+        #}
+
+        if(punctuationCoords is None):
+        #{
+            punctuationCoords = self.findPunctuation(startPoint, toFindIn)
+        #}
+        else:
+        #{
+            punctuationCoords = punctuationCoords # Just a little confusing...
+        #}
+
+        pos = 0 # loop counter
+
+        while(punctuation not in fileContents):
+        #{
+            currLine = fileContents[pos]
+
+            # TODO bundle all arrays (see TODO) in order to check if the current
+            # TODO line has been 'done' PSEUDO CHECK IF array[0:EOA][0] != "x"
+            pos += 1
+        #}
+    #}
+
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
     #{
         toFind         = toFind
@@ -323,4 +429,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.findString("pariatur?", None, None))
+print(p_1.findPunctuation(None, None))
