@@ -89,12 +89,13 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             fileContents = toFindIn
         #}
         
-        lengthOfFile   = self.getNumbOfLines()
-        currChar       = "" # Current line being read (char)
-        currLine       = "" # Current character being read (String)
-        currLineNumber = 0 # Current line being read (numerical)
-        currCharNumber = 0 # Current character being read (numerical)
-        barLocations   = [] # currLine, currChar
+        lengthOfFile    = self.getNumbOfLines()
+        currChar        = "" # Current line being read (char)
+        currLine        = "" # Current character being read (String)
+        currLineNumber  = 0 # Current line being read (numerical)
+        currCharNumber  = 0 # Current character being read (numerical)
+        currBarLocation = [None, None] # temp var, used to 'bundle' arrays
+        barLocations    = [] # currLine, currChar
 
         for pos in range(lengthOfFile):
         #{
@@ -109,9 +110,11 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
                     if("|" in currLine[i]):
                     #{
-                        barLocations.append(currLineNumber)
-                        barLocations.append(currCharNumber - 1) # '-1' to counteract machine starting from 0
-                    #}                                            whereas this variable starts from 1
+                        currBarLocation[0] = currLineNumber
+                        currBarLocation[1] = (currCharNumber - 1) # '-1' to counteract machine starting from 0
+                        barLocations.append(currBarLocation)      # whereas this variable starts from 1
+                        currBarLocation    = [None, None]
+                    #}
                 #}
 
                 currCharNumber = 0 # reset as on new line
@@ -182,6 +185,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
     #{
         fileContents          = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
         capitalLocations      = [] # line, chars across
+        currCapitalLocation   = [None, None] # Temp var used to 'bundle' arrays
         lineNumber            = 0 # number of line currently being read
         totalLengthOfFile     = self.getTotalNumbOfChars(None) # total number of chars in the file
         currChar              = "" # Current char being read
@@ -201,8 +205,12 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
             if(currChar.isupper()):
             #{
-                capitalLocations.append(lineNumber)
-                capitalLocations.append(positionInCurrentLine)
+                currCapitalLocation[0] = lineNumber
+                currCapitalLocation[1] = positionInCurrentLine
+
+                capitalLocations.append(currCapitalLocation)
+
+                currCapitalLocation = [None, None]
             #}
 
             charsAcross += 1
@@ -243,6 +251,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
                          "&", "*", "[", "]", "{", "}", "`", "¬", "|", " \ ", ":",
                          ";", "~", "@", "-", "_"] # Which fool decided to use Python!
         puncPositions = [] # Line number, char
+        currPuncPos   = [None, None] # Temp Var used to 'bundle' arrays
 
         for i in range(lengthOfFile):
         #{
@@ -255,8 +264,12 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
                 if(currChar in punctuation):
                 #{
-                    puncPositions.append(currLineNumber)
-                    puncPositions.append(currCharNumber)
+                    currPuncPos[0] = currLineNumber
+                    currPuncPos[1] = currCharNumber
+
+                    puncPositions.append(currPuncPos)
+
+                    currPuncPos = [None, None]
                 #}
             #}
 
@@ -269,53 +282,12 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
     def removePunctuation(self, punctuationCoords, startPoint, toFindIn):
     #{
-        punctuation   = [",", ".", "(", ")", "!", "", '"', "£", "$", "%", "^",
-                         "&", "*", "[", "]", "{", "}", "`", "¬", "|", " \ ", ":",
-                         ";", "~", "@", "-", "_"]
+        # TODO
+        pass # QWFX
+    #}
 
-        if(toFindIn is None):
-        #{
-            fileContents = self.getFileContents()
-        #}
-        else:
-        #{
-            fileContents = toFindIn
-        #}
+        return fileContents
 
-        if(startPoint is None):
-        #{
-            currLine       = ""
-            currChar       = ""
-            currLineNumber = 0
-            currCharNumber = 0
-        #}
-        else:
-        #{
-            currLineNumber = startPoint[0]
-            currCharNumber = startPoint[1]
-            currLine       = ""
-            currChar       = ""
-        #}
-
-        if(punctuationCoords is None):
-        #{
-            punctuationCoords = self.findPunctuation(startPoint, toFindIn)
-        #}
-        else:
-        #{
-            punctuationCoords = punctuationCoords # Just a little confusing...
-        #}
-
-        pos = 0 # loop counter
-
-        while(punctuation not in fileContents):
-        #{
-            currLine = fileContents[pos]
-
-            # TODO bundle all arrays (see TODO) in order to check if the current
-            # TODO line has been 'done' PSEUDO CHECK IF array[0:EOA][0] != "x"
-            pos += 1
-        #}
     #}
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
@@ -429,4 +401,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.findPunctuation(None, None))
+print(p_1.removePunctuation(None, None, None))
