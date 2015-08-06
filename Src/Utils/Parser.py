@@ -265,7 +265,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
                 if(currChar in punctuation):
                 #{
                     currPuncPos[0] = currLineNumber
-                    currPuncPos[1] = currCharNumber
+                    currPuncPos[1] = currCharNumber - 1 # Counteract startpoint being 0
 
                     puncPositions.append(currPuncPos)
 
@@ -289,12 +289,16 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         currLineNumb = 0 # Current Numerical-form line being read
         currCharNumb = 0 # Current Numerical-form char being read
 
-        for i in range(len(startPoints) - 1): # While there are still caps to change
+        for i in range(len(startPoints) - 1): # While there are still caps to change todo out of range too small, one extra value is ignored
         #{
-            currLineNumb = startPoints[i][0] # Line
-            currCharNumb = startPoints[i][1] # Char
-            currLine     = "".join(fileContents[currLineNumb]) # String for parsing in currChar
-            currChar     = currLine[currCharNumb] # TODO
+            currLineNumb               = startPoints[i][0] # Line
+            currCharNumb               = startPoints[i][1] # Char
+            currLine                   = "".join(fileContents[currLineNumb]) # String for parsing in currChar
+            currChar                   = currLine[currCharNumb]
+
+            ## TODO currLine[currCharNumb] = None
+
+            fileContents[currLineNumb] = currLine # Apply changes to fileContents permanently
         #}
 
         return fileContents
