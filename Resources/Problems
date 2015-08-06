@@ -13,3 +13,11 @@ IN findPunctuation:
                     currPuncPos[1] = currCharNumber - 1 # Counteract startpoint being 0
 
                     POTENTIAL BUG!
+>>> when removing items from the list, all startpoints become invalid, due to the length of the list decreasing i.e.:
+
+
+Lorem ipsum dolor sit amet, agam eius duo ut, enim justo ex duo. Nam cu sumo vide labore. Laudem civibus vim in.
+                         -^=
+
+Lorem ipsum dolor sit amet agam eius duo ut, enim justo ex duo. Nam cu sumo vide labore. Laudem civibus vim in.
+                          ^SHORTER

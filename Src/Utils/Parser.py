@@ -293,12 +293,10 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #{
             currLineNumb               = startPoints[i][0] # Line
             currCharNumb               = startPoints[i][1] # Char
-            currLine                   = "".join(fileContents[currLineNumb]) # String for parsing in currChar
-            currChar                   = currLine[currCharNumb]
-
-            ## TODO currLine[currCharNumb] = None
-
-            fileContents[currLineNumb] = currLine # Apply changes to fileContents permanently
+            currLine                   = " ".join(fileContents[currLineNumb].split()) # convert to String keeping spaces
+            currChar                   = currLine[currCharNumb] # Split the string up into a list of chars
+            currLine                   = currLine.replace(currChar, "") # TODO world's larget's pain in the arse, see problems(>>>)
+            fileContents[currLineNumb] = currLine
         #}
 
         return fileContents
@@ -414,5 +412,5 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 file = "FileExample.txt"
 
 p_1 = Parser(file)
-# 82
+
 print(p_1.removePunctuation(None, None, None))
