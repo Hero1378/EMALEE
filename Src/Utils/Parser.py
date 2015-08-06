@@ -162,10 +162,10 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             fileContents = toFindIn
         #}
 
-        rawLength   = self.getNumbOfLines()
+        lengthOfFile   = self.getNumbOfLines()
         totalLength = 0 # Numb of chars in file
 
-        for i in range(len(fileContents)):
+        for i in range(lengthOfFile):
         #{
             totalLength += len(fileContents[i])
         #}
@@ -282,12 +282,22 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
     def removePunctuation(self, punctuationCoords, startPoint, toFindIn):
     #{
-        # TODO
-        pass # QWFX
-    #}
+        fileContents = self.getFileContents()
+        startPoints  = self.findPunctuation(startPoint, toFindIn)
+        currLine     = "" # Current Alpha-form line being read
+        currChar     = "" # Current Alpha-form char being read
+        currLineNumb = 0 # Current Numerical-form line being read
+        currCharNumb = 0 # Current Numerical-form char being read
+
+        for i in range(len(startPoints) - 1): # While there are still caps to change
+        #{
+            currLineNumb = startPoints[i][0] # Line
+            currCharNumb = startPoints[i][1] # Char
+            currLine     = "".join(fileContents[currLineNumb]) # String for parsing in currChar
+            currChar     = currLine[currCharNumb] # TODO
+        #}
 
         return fileContents
-
     #}
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
@@ -400,5 +410,5 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 file = "FileExample.txt"
 
 p_1 = Parser(file)
-
-print(p_1.findCapitalLetters())
+# 82
+print(p_1.removePunctuation(None, None, None))
