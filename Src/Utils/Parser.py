@@ -401,4 +401,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.removePunctuation(None, None, None))
+print(p_1.findCapitalLetters())
