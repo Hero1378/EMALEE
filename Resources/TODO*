@@ -24,9 +24,8 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
 ¬   [FW] (I) [28/06/2015 | 30/07/2015]-[#]: Start work on framework.
     ¬   [FW] (I) [28/06/2015 | 16/07/2015]-[#]: Finish writing ParserDoc.
     ¬   [FW] (I) [28/06/2015 | 20/07/2015]-[2]: Write String parser(basics).
-        ¬   [FW] (I) [12/07/2015 | 18/07/2015]-[3]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].(Can't recreate)
+        ¬   [FW] (#) [12/07/2015 | 18/07/2015]-[3]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].(Can't recreate)
     ¬   [FW] (I) [28/06/2015 | 16/07/2015]-[#]: Write String parser(basics).
-    ¬   [FW] (C) [12/07/2015 | 15/07/2015]-[#]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].
     ¬   [FW] (I) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
 *   -   [FW] (I) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
         -[FW] (N) [#|#|-[#]: Write Wiki
@@ -36,7 +35,7 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
     -   [FW] (N) [#|#]-[#]: Update ParserDoc
     -   [FW] (C) [22/07/2015|24/07/2015]-[#]: re-write markNewLines(), so that if a '|' is already present,
             another cannot be written next to it. Also requires methods to get current line, and char (SEE BELOW).
-        -   [FW] (N) [22/07/2015|24/07/2015]-[#]: Write methods to get current line, and char. These will be needed in
+        -   [FW] (C) [22/07/2015|24/07/2015]-[#]: Write methods to get current line, and char. These will be needed in
                 findAllStrings(), as to delete the nth element that has been found, the line number and column must be found.
     -   [FW] (C) [#|#]-[#]: Write method 'getExistingBars()' (see problems).
     -   [FW] (N) [#|#]-[#]: Write method 'findAllStrings'.
@@ -44,4 +43,4 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
     -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
     -   [FW] (I) [27/07/2015|27/07/2015]-[9]: Write method 'getExistingPunctuation and removePunctuation (see problems)'
     -   [FW] (C) [27/07/2015|27/07/2015]-[#]: Bundle array returns as nth D arrays i.e. BEFORE = [0, 12, 5, 45] AFTER = [[0, 12], [5, 45]]
-    -   [FW] (C) [#|#]-[#]: Make method names consistant i.e (get, find)?
+    -   [FW] (C) [#|#]-[#]: Make method names consistent i.e (get, find)?
