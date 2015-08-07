@@ -282,15 +282,16 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
     def removePunctuation(self, punctuationCoords, startPoint, toFindIn):
     #{
-        fileContents = self.getFileContents()
-        startPoints  = self.findPunctuation(startPoint, toFindIn)
-        currLine     = "" # Current Alpha-form line being read
-        currChar     = "" # Current Alpha-form char being read
-        currLineNumb = 0 # Current Numerical-form line being read
-        currCharNumb = 0 # Current Numerical-form char being read
+        fileContents       = self.getFileContents()
+        startPoints        = self.findPunctuation(startPoint, toFindIn)
+        currLine           = "" # Current Alpha-form line being read
+        currChar           = "" # Current Alpha-form char being read
+        currLineNumb       = 0 # Current Numerical-form line being read
+        currCharNumb       = 0 # Current Numerical-form char being read
+
 
         for i in range(len(startPoints) - 1): # While there are still caps to change todo out of range too small, one extra value is ignored
-        #{
+        #{ PSEUDO -1 to each charNumb if still on same line
             currLineNumb               = startPoints[i][0] # Line
             currCharNumb               = startPoints[i][1] # Char
             currLine                   = " ".join(fileContents[currLineNumb].split()) # convert to String keeping spaces
