@@ -13,6 +13,7 @@ P = Postponed
 ¬ = Changed
 * = Reminder
 
+-   [] () [|]: <- To Copy
 <-/¬    ><[Initials]>< ><[D/A/TE_START | D/A/TE_END]><-><DELAY(days, hours)><:> <CONTENT.>
 
 --------------------------------------------------------------------------------
