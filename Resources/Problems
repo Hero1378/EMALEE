@@ -23,3 +23,9 @@ Lorem ipsum dolor sit amet agam eius duo ut, enim justo ex duo. Nam cu sumo vide
                           ^SHORTER
 
 Fix by subbing 1 from each 'coord'
+
+len() returns 'human len' I.E. array = ["a", "b", "c"] ############ DUH!
+                               print(len(array))
+
+                            >>>3
+                               ^== 3 ! 2
