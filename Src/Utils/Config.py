@@ -285,19 +285,19 @@ class Config(): # TODO remove any 'temp file ghuff'
 
     def editValueAmount(self, value, newValueAmount): # TODO
     #{
-        fileContents                = self.getBundledFileContents()
-        valueLine                   = self.getValueLineNumbers()[value]
-        self.FILE                   = open(self.fileName, "w")
-        fileContents[valueLine + 1] = newValueAmount # +2 to skip machine code
-        currName                    = ""
-        currValue                   = ""
+        fileContents                   = self.getBundledFileContents()
+        valueLine                      = self.getValueLineNumbers()[value]
+        self.FILE                      = open(self.fileName, "w")
+        fileContents[valueLine + 1][1] = newValueAmount # +1 to skip machine code
+        currName                       = ""
+        currValue                      = ""
 
         for i in range (len(fileContents)):
         #{
             currName = fileContents[i][0]
             currValue = fileContents[i][1]
 
-            self.FILE.write(str(currName) + str(currValue) + "\n")
+            self.FILE.write(str(currName) + " " + str(currValue) + "\n")
         #}
 
         self.resetFile()
@@ -305,16 +305,59 @@ class Config(): # TODO remove any 'temp file ghuff'
 
     def editValueName(self, value, newValueName):
     #{
-        pass
+        fileContents                   = self.getBundledFileContents()
+        valueLine                      = self.getValueLineNumbers()[value]
+        self.FILE                      = open(self.fileName, "w")
+        fileContents[valueLine + 1][0] = newValueName # +1 to skip machine code
+        currName                       = ""
+        currValue                      = ""
+
+        for i in range (len(fileContents)):
+        #{
+            currName = fileContents[i][0]
+            currValue = fileContents[i][1]
+
+            if(":" not in currName):
+            #{
+                self.FILE.write(str(currName) + ": " + str(currValue) + "\n")
+            #}
+            else:
+            #{
+                self.FILE.write(str(currName) + " " + str(currValue) + "\n")
+            #}
+        #}
+
+        self.resetFile()
     #}
 
     def removeValue(self, valueToRemove):
     #{
-        fileContents = self.getFileContents()
+        fileContents                   = self.getBundledFileContents()
+        valueLine                      = self.getValueLineNumbers()[valueToRemove]
+        self.FILE                      = open(self.fileName, "w")
+        fileContents[valueLine + 1][0] = "" # +1 to skip machine code
+        fileContents[valueLine + 1][1] = "" # +1 to skip machine code
+        currName                       = ""
+        currValue                      = ""
 
-        pass
+        for i in range (len(fileContents)):
+        #{
+            currName = fileContents[i][0]
+            currValue = fileContents[i][1]
+
+            if((":" not in currName) and (currName != "")):
+            #{
+                self.FILE.write(str(currName) + ": " + str(currValue) + "\n")
+            #}
+            else:
+            #{
+                if(currName != ""):
+                #{
+                    self.FILE.write(str(currName) + " " + str(currValue) + "\n")
+                #}
+            #}
+        #}
+
+        self.resetFile()
     #}
 #}
-
-c = Config("Text")
-c.editValueAmount("Age", "12")
