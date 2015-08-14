@@ -336,23 +336,25 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #{
             if(len(startPoint) > 2): # 2 args should be passed in
             #{
-                raise NameError
+                raise print("Too Many args Passed in.")
             #}
             elif(not (isinstance(startPoint[0], int))): # If not an integer
             #{
-                raise NameError
+                print("StartPoint[0] is not an integer")
             #}
             elif(not (isinstance(startPoint[1], int))):
             #{
-                raise NameError
+                print("StartPoint[1] is not an integer")
             #}
             elif(startPoint[0] > self.getNumbOfLines()):
             #{
-                raise NameError # line given doesn't exist
+                print("StartPoint[0] is Larger than the Number of Lines in the"
+                      " File")
             #}
             elif(startPoint[1] > self.getLineLengths()[0]):
             #{
-                raise NameError # line given doesn't exist
+                print("StartPoint[1] is Larger than the Number of Lines in the"
+                      " File")
             #}
         #}
         else:
