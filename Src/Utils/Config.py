@@ -1,4 +1,4 @@
-class Config():
+class Config(): # TODO remove any 'temp file ghuff'
 #{
     def __init__(self, fileName): # TODO add somthing to remove spaces in valueNames (like with colons)
     #{
@@ -23,44 +23,84 @@ class Config():
 
     def getLengthOfFile(self):
     #{
-        self.FILE = open(self.fileName, "r")
-
         lengthOfFile = len(self.FILE.readlines())
 
-        self.FILE.close()
-        self.FILE = open(self.fileName, "r")
+        self.resetFile()
 
         return lengthOfFile
+    #}
+
+    def resetFile(self): # Used to go back to first line
+    #{
+        self.FILE = open(self.fileName, "r")
     #}
 
     def getFileContents(self):
     #{
         fileContents = []
+        lengthOfFile = self.getLengthOfFile()
         currLine     = ""
         pos          = 0
 
-        while(pos <= self.getLengthOfFile()):
+        while(pos <= lengthOfFile):
         #{
             currLine = self.FILE.readline()
 
-            fileContents.append(currLine)
+            if(currLine != ""):
+            #{
+                fileContents.append(currLine)
+            #}
 
             pos += 1
         #}
 
+        self.resetFile()
+
         return "".join(fileContents).split() # removes newlines
+    #}
+
+    def getBundledFileContents(self): # Gets file contents in nth-D array
+    #{
+        fileContents        = self.getFileContents()
+        bundledFileContents = [] # BFE
+        tempBundle          = [None, None] # used to 'bundle' array
+        isComplete          = False # Fires every 2 loops, to allow BFC to be appended to
+
+        for i in range(len(fileContents)):
+        #{
+            if((i % 2) == 0): # Test if even to alternate [0/1]
+            #{
+                tempBundle[0] = fileContents[i]
+                isComplete    = False
+            #}
+            else:
+            #{
+                tempBundle[1] = fileContents[i]
+                isComplete    = True
+            #}
+
+            if(isComplete):
+            #{
+                bundledFileContents.append(tempBundle)
+
+                tempBundle = [None, None]
+            #}
+        #}
+
+        return bundledFileContents
     #}
 
     def getValueNames(self):
     #{
         fileContents = self.getFileContentsNoNewLines()
+        lengthOfFile = self.getLengthOfFile()
         names        = [] # All of values
         currLine     = ""
         currName     = "" # Semi- complete value being parsed
         currChar     = "" # Char being parsed
         lineNumber   = 0
 
-        while(lineNumber <= self.getLengthOfFile()):
+        while(lineNumber <= lengthOfFile):
         #{
             currLine = fileContents[lineNumber]
 
@@ -84,10 +124,6 @@ class Config():
             lineNumber += 1
         #}
 
-        self.FILE.close()
-
-        self.FILE = open(self.fileName, "r")
-
         if("" in names):
         #{
             while("" in names):
@@ -101,22 +137,22 @@ class Config():
 
     def getFileContentsNoNewLines(self):
     #{
-        tempFile     = open(self.fileName, "r")
         fileContents = []
+        lengthOfFile = self.getLengthOfFile()
         currLine     = ""
         currChar     = ""
         lineNumber   = 0
 
-        while(lineNumber <= self.getLengthOfFile()):
+        while(lineNumber <= lengthOfFile):
         #{
-            currLine = "".join(tempFile.readline().split()) # Remove '\n'
+            currLine = "".join(self.FILE.readline().split()) # Remove '\n'
 
             fileContents.append(currLine)
 
             lineNumber += 1
         #}
 
-        tempFile.close()
+        self.resetFile()
 
         return fileContents
     #}
@@ -124,13 +160,14 @@ class Config():
     def getAmounts(self):
     #{
         fileContents = self.getFileContentsNoNewLines()
+        lengthOfFile = self.getLengthOfFile()
         amounts      = []
         currLine     = ""
         currChar     = ""
         currAmount   = "" # Semi- complete amount being parsed
         lineNumber   = 0
 
-        while(lineNumber <= self.getLengthOfFile()):
+        while(lineNumber <= lengthOfFile):
         #{
             currLine = fileContents[lineNumber]
 
@@ -152,6 +189,42 @@ class Config():
         #}
 
         return amounts
+    #}
+
+    def getValueLineNumbers(self): # Returns line numbers in 'Machine Numbers'
+    #{
+        lineNumbers      = {}
+        lengthOfFile     = self.getLengthOfFile()
+        currLineNumber   = 0
+        currLine         = ""
+        currValue        = ""
+        currChar         = ""
+        pos              = 0 # Position in current line being parsed
+
+        while(currLineNumber < lengthOfFile):
+        #{
+            currLine = "".join(self.FILE.readline().split())
+
+            while((currChar != ":") and (pos < len(currLine))):
+            #{
+                currChar = currLine[pos]
+
+                pos += 1
+            #}
+
+            currValue = currLine[0 : (pos - 1)] # '-1' as UP TO colon
+
+            lineNumbers[currValue] = currValue
+            lineNumbers[currValue] = currLineNumber - 1 # To counteract previous nam
+
+            currChar        = ""
+            pos             = 0 # Reset
+            currLineNumber += 1
+        #}
+
+        self.resetFile()
+
+        return lineNumbers
     #}
 
     def getValues(self):  #T ODO
@@ -207,12 +280,30 @@ class Config():
             print("The valueName: '" + str(valueName) + "' given already existes") # TRY?
         #}
 
-        self.FILE.close()
-
-        self.FILE = open(self.fileName, "r")
+        self.resetFile()
     #}
 
-    def editValue(self, value, newValueAmount):
+    def editValueAmount(self, value, newValueAmount): # TODO
+    #{
+        fileContents                = self.getBundledFileContents()
+        valueLine                   = self.getValueLineNumbers()[value]
+        self.FILE                   = open(self.fileName, "w")
+        fileContents[valueLine + 1] = newValueAmount # +2 to skip machine code
+        currName                    = ""
+        currValue                   = ""
+
+        for i in range (len(fileContents)):
+        #{
+            currName = fileContents[i][0]
+            currValue = fileContents[i][1]
+
+            self.FILE.write(str(currName) + str(currValue) + "\n")
+        #}
+
+        self.resetFile()
+    #}
+
+    def editValueName(self, value, newValueName):
     #{
         pass
     #}
@@ -226,4 +317,4 @@ class Config():
 #}
 
 c = Config("Text")
-print(c.getValues())
+c.editValueAmount("Age", "12")
