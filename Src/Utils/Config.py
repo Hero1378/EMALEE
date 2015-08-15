@@ -21,24 +21,24 @@ class Config(): # TODO remove any 'temp file ghuff'
 
         self.values = {}
 
-    def getLengthOfFile(self):
+    def __getLengthOfFile(self):
     #{
         lengthOfFile = len(self.FILE.readlines())
 
-        self.resetFile()
+        self.__resetFile()
 
         return lengthOfFile
     #}
 
-    def resetFile(self): # Used to go back to first line
+    def __resetFile(self): # Used to go back to first line
     #{
         self.FILE = open(self.fileName, "r")
     #}
 
-    def getFileContents(self):
+    def __getFileContents(self):
     #{
         fileContents = []
-        lengthOfFile = self.getLengthOfFile()
+        lengthOfFile = self.__getLengthOfFile()
         currLine     = ""
         pos          = 0
 
@@ -54,15 +54,15 @@ class Config(): # TODO remove any 'temp file ghuff'
             pos += 1
         #}
 
-        self.resetFile()
+        self.__resetFile()
 
         return "".join(fileContents).split() # removes newlines
     #}
 
-    def getBundledFileContents(self): # Gets file contents in nth-D array
+    def __getBundledFileContents(self): # Gets file contents in nth-D array
     #{
-        names               = self.getValueNames() # Used for getting names
-        amounts             = self.getAmounts() # Used for getting amounts
+        names               = self.__getValueNames() # Used for getting names
+        amounts             = self.__getFieldValues() # Used for getting amounts
         bundledFileContents = [] # BFE
         tempBundle          = [None, None] # used to 'bundle' array
 
@@ -86,10 +86,10 @@ class Config(): # TODO remove any 'temp file ghuff'
         return bundledFileContents
     #}
 
-    def getValueNames(self):
+    def __getValueNames(self):
     #{
-        fileContents = self.getFileContentsNoNewLines()
-        lengthOfFile = self.getLengthOfFile()
+        fileContents = self.__getFileContentsNoNewLines()
+        lengthOfFile = self.__getLengthOfFile()
         names        = [] # All of values
         currLine     = ""
         currName     = "" # Semi- complete value being parsed
@@ -131,10 +131,10 @@ class Config(): # TODO remove any 'temp file ghuff'
         return names
     #}
 
-    def getFileContentsNoNewLines(self):
+    def __getFileContentsNoNewLines(self):
     #{
         fileContents = []
-        lengthOfFile = self.getLengthOfFile()
+        lengthOfFile = self.__getLengthOfFile()
         currLine     = ""
         currChar     = ""
         lineNumber   = 0
@@ -148,15 +148,15 @@ class Config(): # TODO remove any 'temp file ghuff'
             lineNumber += 1
         #}
 
-        self.resetFile()
+        self.__resetFile()
 
         return fileContents
     #}
 
-    def getAmounts(self):
+    def __getFieldValues(self):
     #{
-        fileContents = self.getFileContentsNoNewLines()
-        lengthOfFile = self.getLengthOfFile()
+        fileContents = self.__getFileContentsNoNewLines()
+        lengthOfFile = self.__getLengthOfFile()
         amounts      = []
         currLine     = ""
         currChar     = ""
@@ -187,10 +187,10 @@ class Config(): # TODO remove any 'temp file ghuff'
         return amounts
     #}
 
-    def getValueLineNumbers(self): # Returns line numbers in 'Machine Numbers'
+    def __getValueLineNumbers(self): # Returns line numbers in 'Machine Numbers'
     #{
         lineNumbers      = {}
-        lengthOfFile     = self.getLengthOfFile()
+        lengthOfFile     = self.__getLengthOfFile()
         currLineNumber   = 0
         currLine         = ""
         currValue        = ""
@@ -218,15 +218,15 @@ class Config(): # TODO remove any 'temp file ghuff'
             currLineNumber += 1
         #}
 
-        self.resetFile()
+        self.__resetFile()
 
         return lineNumbers
     #}
 
     def getValues(self):  #T ODO
     #{
-        valueNames   = self.getValueNames()
-        valueAmounts = self.getAmounts()
+        valueNames   = self.__getValueNames()
+        valueAmounts = self.__getFieldValues()
         currValue    = ""
         currAmount   = ""
 
@@ -255,9 +255,9 @@ class Config(): # TODO remove any 'temp file ghuff'
         return self.values
     #}
 
-    def addValue(self, newValueName, newValueAmount):
+    def addField(self, newValueName, newValueAmount):
     #{
-        values       = self.getValueNames()
+        values       = self.__getValueNames()
         self.FILE    = open(self.fileName, "a") # open after values TODO file mode conflict
         valueName    = newValueName
         valueAmount  = newValueAmount
@@ -281,13 +281,13 @@ class Config(): # TODO remove any 'temp file ghuff'
             print("The valueName: '" + str(valueName) + "' given already existes") # TRY?
         #}
 
-        self.resetFile()
+        self.__resetFile()
     #}
 
-    def editValueAmount(self, value, newValueAmount): # TODO
+    def editFieldValue(self, value, newValueAmount): # TODO
     #{
-        fileContents                   = self.getBundledFileContents()
-        valueLine                      = self.getValueLineNumbers()[value]
+        fileContents                   = self.__getBundledFileContents()
+        valueLine                      = self.__getValueLineNumbers()[value]
         self.FILE                      = open(self.fileName, "w")
         fileContents[valueLine + 1][1] = newValueAmount # +1 to skip machine code
         currName                       = ""
@@ -297,21 +297,29 @@ class Config(): # TODO remove any 'temp file ghuff'
         #{
             currName = fileContents[i][0]
 
-            for pos in range(len(fileContents[i])): # Add spaces between elements
+            pos = 1
+            while(pos < len(fileContents[i])): # Start from 1 to avoid first element
             #{
-                currValue += " " + str(fileContents[i][pos])
+                currValue += "" + str(fileContents[i][pos]) # Add spaces and concatente
+
+                pos += 1
             #}
 
-            self.FILE.write(str(currName) + " " + str(currValue) + "\n")
+            currValue = " ".join(currValue.split()) # Remove 'ghost' space at start of string
+
+            self.FILE.write(str(currName) + ": " + str(currValue) + "\n")
+
+
+            currValue = ""
         #}
 
-        self.resetFile()
+        self.__resetFile()
     #}
 
-    def editValueName(self, value, newValueName):
+    def editFieldName(self, value, newValueName):
     #{
-        fileContents                   = self.getBundledFileContents()
-        valueLine                      = self.getValueLineNumbers()[value]
+        fileContents                   = self.__getBundledFileContents()
+        valueLine                      = self.__getValueLineNumbers()[value]
         self.FILE                      = open(self.fileName, "w")
         fileContents[valueLine + 1][0] = newValueName # +1 to skip machine code
         currName                       = ""
@@ -319,8 +327,9 @@ class Config(): # TODO remove any 'temp file ghuff'
 
         for i in range (len(fileContents)):
         #{
-            currName = fileContents[i][0]
+            currName  = fileContents[i][0]
             currValue = fileContents[i][1]
+            currValue = " ".join(currValue.split()) # Remove 'ghost' space at start of string
 
             if(":" not in currName):
             #{
@@ -332,13 +341,13 @@ class Config(): # TODO remove any 'temp file ghuff'
             #}
         #}
 
-        self.resetFile()
+        self.__resetFile()
     #}
 
-    def removeValue(self, valueToRemove):
+    def removeField(self, valueToRemove):
     #{
-        fileContents                   = self.getBundledFileContents()
-        valueLine                      = self.getValueLineNumbers()[valueToRemove]
+        fileContents                   = self.__getBundledFileContents()
+        valueLine                      = self.__getValueLineNumbers()[valueToRemove]
         self.FILE                      = open(self.fileName, "w")
         fileContents[valueLine + 1][0] = "" # +1 to skip machine code
         fileContents[valueLine + 1][1] = "" # +1 to skip machine code
@@ -363,6 +372,6 @@ class Config(): # TODO remove any 'temp file ghuff'
             #}
         #}
 
-        self.resetFile()
+        self.__resetFile()
     #}
 #}
