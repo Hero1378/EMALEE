@@ -95,6 +95,7 @@ EXAMPLE:
     print(str(text["language"]) + ": " + str(text["Exit"]))
 
     config_File.editFieldValue("language", "Deutsche")
+    config_File.addComment("My Comment")
     config_File.editFieldValue("Welcome", "Willkommen")
     config_File.editFieldValue("Main", "Haupt")
     config_File.editFieldValue("Exit", "Ausgang")
@@ -106,6 +107,7 @@ EXAMPLE:
     print(str(text["language"]) + ": " + str(text["Exit"]))
 
     config_File.editFieldName("language", "Sprache")
+    config_File.addComment("My Comment")
     config_File.editFieldName("Welcome", "Willkommen")
     config_File.editFieldName("Main", "Haupt")
     config_File.editFieldName("Exit", "Ausgang")
