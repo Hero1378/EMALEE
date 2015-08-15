@@ -1,6 +1,6 @@
-class Config(): # TODO remove any 'temp file ghuff'
+class Config():
 #{
-    def __init__(self, fileName): # TODO add somthing to remove spaces in valueNames (like with colons)
+    def __init__(self, fileName):
     #{
         self.fileName = (str(fileName) + ".conf")
 
@@ -269,7 +269,7 @@ class Config(): # TODO remove any 'temp file ghuff'
     def addField(self, newValueName, newValueAmount):
     #{
         values       = self.__getValueNames()
-        self.FILE    = open(self.fileName, "a") # open after values TODO file mode conflict
+        self.FILE    = open(self.fileName, "a") # open after values
         valueName    = newValueName
         valueAmount  = newValueAmount
 
@@ -297,14 +297,14 @@ class Config(): # TODO remove any 'temp file ghuff'
 
     def addComment(self, comment):
     #{
-        self.FILE    = open(self.fileName, "a") # open after values TODO file mode conflict
+        self.FILE    = open(self.fileName, "a") # open after values
 
         self.FILE.write("# " + str(comment) + "\n") # E.G. xValue: 12
 
         self.__resetFile()
     #}
 
-    def editFieldValue(self, value, newValueAmount): # TODO
+    def editFieldValue(self, value, newValueAmount):
     #{
         fileContents                   = self.__getBundledFileContents()
         valueLine                      = self.__getValueLineNumbers()[value]
