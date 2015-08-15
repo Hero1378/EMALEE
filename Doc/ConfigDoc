@@ -20,7 +20,7 @@ addField:
     IN-CONFIG: height: 20
     RETURNS: N/A
     NOTE: fieldNames will have their spaces removed i.e 'var Name' will become
-          'varName'.
+          'varName'. WILL BE ERASED AFTER EACH EDIT TO THE CONFIG FILE!
 
 addComment:
 
