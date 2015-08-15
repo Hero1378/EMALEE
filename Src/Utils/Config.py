@@ -100,6 +100,17 @@ class Config(): # TODO remove any 'temp file ghuff'
         #{
             currLine = fileContents[lineNumber]
 
+            if(len(currLine) > 0): # Ignore newlines
+            #{
+                if("".join(currLine)[0] == "#"): # Ignore comments
+                #{
+                    currName   = "" # Set to default
+                    lineNumber += 1
+
+                    continue
+                #}
+            #}
+
             for i in range(len(currLine)):
             #{
                 currChar = currLine[i]
@@ -280,6 +291,15 @@ class Config(): # TODO remove any 'temp file ghuff'
         #{
             print("The valueName: '" + str(valueName) + "' given already existes") # TRY?
         #}
+
+        self.__resetFile()
+    #}
+
+    def addComment(self, comment):
+    #{
+        self.FILE    = open(self.fileName, "a") # open after values TODO file mode conflict
+
+        self.FILE.write("# " + str(comment) + "\n") # E.G. xValue: 12
 
         self.__resetFile()
     #}
