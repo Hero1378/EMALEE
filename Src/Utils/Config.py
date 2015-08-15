@@ -61,30 +61,26 @@ class Config(): # TODO remove any 'temp file ghuff'
 
     def getBundledFileContents(self): # Gets file contents in nth-D array
     #{
-        fileContents        = self.getFileContents()
+        names               = self.getValueNames() # Used for getting names
+        amounts             = self.getAmounts() # Used for getting amounts
         bundledFileContents = [] # BFE
         tempBundle          = [None, None] # used to 'bundle' array
-        isComplete          = False # Fires every 2 loops, to allow BFC to be appended to
 
-        for i in range(len(fileContents)):
+        if(len(names) != len(amounts)):
         #{
-            if((i % 2) == 0): # Test if even to alternate [0/1]
-            #{
-                tempBundle[0] = fileContents[i]
-                isComplete    = False
-            #}
-            else:
-            #{
-                tempBundle[1] = fileContents[i]
-                isComplete    = True
-            #}
+            print("Got error: lengthMismatchError")
 
-            if(isComplete):
-            #{
-                bundledFileContents.append(tempBundle)
+            return
+        #}
 
-                tempBundle = [None, None]
-            #}
+        for i in range(len(amounts)):
+        #{
+            tempBundle[0] = names[i]
+            tempBundle[1] = amounts[i]
+
+            bundledFileContents.append(tempBundle)
+
+            tempBundle = [None, None] # Set to default to enable re-use
         #}
 
         return bundledFileContents
@@ -362,7 +358,7 @@ class Config(): # TODO remove any 'temp file ghuff'
             #{
                 if(currName != ""):
                 #{
-                    self.FILE.write(str(currName) + " " + str(currValue) + "\n")
+                    self.FILE.write(str(currName) + "" + str(currValue) + "\n")
                 #}
             #}
         #}
