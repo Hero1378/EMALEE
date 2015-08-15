@@ -125,9 +125,12 @@ EXAMPLE:
         English: Welcome
         English: Main
         English: Exit
-        German: Willkommen
-        German: Haupt
-        German: Ausgang
+        Deutsche: Willkommen
+        Deutsche: Haupt
+        Deutsche: Ausgang
+        Deutsche: Willkommen
+        Deutsche: Haupt
+        Deutsche: Ausgang
         >>>
         
     IN-CONFIG:
