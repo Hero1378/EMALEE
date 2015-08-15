@@ -8,6 +8,8 @@ E.G.: config_File = Config("text")
 NOTE: these files will be stored with the extension '.conf', so there is no need
       to manually add a file extension in the Constructor.
 
+NOTE: AFTER EACH EDIT OF THE CONFIG FILE, ALL COMMENTS ARE ERASED!
+
 There are six methods available to the user:
 
 addField:
