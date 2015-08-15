@@ -81,6 +81,7 @@ EXAMPLE:
     config_File = Config("Text")
 
     config_File.addField("language", "English")
+    config_File.addComment("My Comment")
     config_File.addField("Welcome", "Welcome")
     config_File.addField("Main", "Main")
     config_File.addField("Exit", "Exit")
@@ -132,16 +133,19 @@ EXAMPLE:
     IN-CONFIG:
     
     language: English
+    # My Comment
     Welcome: Welcome
     Main: Main
     Exit: Exit
     ----------------
     language: Deutsche
+    # My Comment
     Welcome: Willkommen
     Main: Haupt
     Exit: Ausgang
     ----------------
     Sprache: Deutsche
+    # My Comment
     Willkommen: Willkommen
     Haupt: Haupt
     Ausgang: Ausgang
