@@ -145,7 +145,7 @@ class Config(): # TODO remove any 'temp file ghuff'
 
         while(lineNumber <= lengthOfFile):
         #{
-            currLine = "".join(self.FILE.readline().split()) # Remove '\n'
+            currLine = " ".join(self.FILE.readline().split()) # Remove '\n'
 
             fileContents.append(currLine)
 
@@ -236,7 +236,7 @@ class Config(): # TODO remove any 'temp file ghuff'
 
         if(len(valueNames) != len(valueAmounts)):
         #{
-            print("LengthMismachError: The length of valueNames and valueAmounts"
+            print("LengthMismatchError: The length of valueNames and valueAmounts"
                   " does not match.")
 
             return # Break
@@ -246,6 +246,11 @@ class Config(): # TODO remove any 'temp file ghuff'
         #{
             currValue  = valueNames[i]
             currAmount = valueAmounts[i]
+
+            if(currAmount[0] == " "): # Removes space at start of string
+            #{
+                currAmount = " ".join(currAmount.split())
+            #}
 
             self.values[currValue] = currValue # Add new key
             self.values[currValue] = currAmount
@@ -295,7 +300,11 @@ class Config(): # TODO remove any 'temp file ghuff'
         for i in range (len(fileContents)):
         #{
             currName = fileContents[i][0]
-            currValue = fileContents[i][1]
+
+            for pos in range(len(fileContents[i])): # Add spaces between elements
+            #{
+                currValue += " " + str(fileContents[i][pos])
+            #}
 
             self.FILE.write(str(currName) + " " + str(currValue) + "\n")
         #}
