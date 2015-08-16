@@ -1,0 +1,161 @@
+=================================| ConfigDoc |==================================
+
+Parser.py is used to edit and create Configuration Files. In order to create a
+'Config' object, a fileName must be provided:
+
+SYNTAX: <variableName> = Config("<fileName>")
+E.G.: config_File = Config("text")
+NOTE: these files will be stored with the extension '.conf', so there is no need
+      to manually add a file extension in the Constructor.
+
+NOTE: AFTER EACH EDIT OF THE CONFIG FILE, ALL COMMENTS ARE ERASED!
+
+There are six methods available to the user:
+
+addField:
+
+    DESCRIPTION: Add a new variable in the Config File.
+    SYNTAX: addField("<fieldName>", "<fieldValue>")
+    E.G.: addField("height", "20")
+    IN-CONFIG: height: 20
+    RETURNS: N/A
+    NOTE: fieldNames will have their spaces removed i.e 'var Name' will become
+          'varName'. WILL BE ERASED AFTER EACH EDIT TO THE CONFIG FILE!
+
+addComment:
+
+    DESCRIPTION: Add a comment that will be ignored by the 'getValues' method.
+    SYNTAX: addComment("<Comment>")
+    E.G.: addComment("My Comment")
+    IN-CONFIG: # My Comment
+    RETURNS: N/A
+    NOTE: When adding a comment manually in the config file,
+          MOVE CARET ONTO A NEWLINE. This will prevent variables from overriding
+          one another.
+
+editFieldValue:
+
+    DESCRIPTION: Edit the value of a variable in the Config File.
+    SYNTAX: editFieldValue("<fieldName>", "<newValue>")
+    E.G.: editFieldValue("height", "30")
+    IN-CONFIG: height: 30
+    RETURNS: N/A
+    NOTE: When editing the fieldValue manually in the Config File LEAVE A SPACE
+          BETWEEN fieldName AND fieldValue.
+
+editFieldName:
+
+    DESCRIPTION: Change the name associated with a variable in the Config File
+    SYNTAX: editFieldName("<fieldName>", "<newFieldName>")
+    E.G.: editFieldName("height", "width")
+    IN-CONFIG: width: 30
+    RETURNS: N/A
+
+getValues:
+
+    DESCRIPTION: get the fieldNames and fieldValues from the Config File in a
+                 dictionary.
+    SYNTAX: getValues()
+    E.G.: getValues()
+    IN-CONFIG: N/A
+    RETURNS: {'height': '30'}
+    NOTE: This method must be called EACH TIME THE CONFIG FILE IS UPDATED.
+
+removeField:
+
+    DESCRIPTION: Remove a field and its value from the Config File.
+    SYNTAX: removeField("<fieldName>")
+    E.G.: removeField("width")
+    IN-CONFIG: N/A
+    RETURNS: N/A
+    NOTE: This will destroy the fieldValue alongside the fieldName.
+
+To print a fieldValue, the appropriate fieldName must be called from the
+dictionary containing the fields.
+
+E.G.: text = config_file.getValues()
+      print(text["height"])
+
+EXAMPLE:
+
+    from Config import *
+
+    config_File = Config("Text")
+
+    config_File.addField("language", "English")
+    config_File.addComment("My Comment")
+    config_File.addField("Welcome", "Welcome")
+    config_File.addField("Main", "Main")
+    config_File.addField("Exit", "Exit")
+
+    text = config_File.getValues()
+
+    print(str(text["language"]) + ": " + str(text["Welcome"]))
+    print(str(text["language"]) + ": " + str(text["Main"]))
+    print(str(text["language"]) + ": " + str(text["Exit"]))
+
+    config_File.editFieldValue("language", "Deutsche")
+    config_File.addComment("My Comment")
+    config_File.editFieldValue("Welcome", "Willkommen")
+    config_File.editFieldValue("Main", "Haupt")
+    config_File.editFieldValue("Exit", "Ausgang")
+
+    text = config_File.getValues()
+
+    print(str(text["language"]) + ": " + str(text["Welcome"]))
+    print(str(text["language"]) + ": " + str(text["Main"]))
+    print(str(text["language"]) + ": " + str(text["Exit"]))
+
+    config_File.editFieldName("language", "Sprache")
+    config_File.addComment("My Comment")
+    config_File.editFieldName("Welcome", "Willkommen")
+    config_File.editFieldName("Main", "Haupt")
+    config_File.editFieldName("Exit", "Ausgang")
+
+    text = config_File.getValues()
+
+    print(str(text["Sprache"]) + ": " + str(text["Willkommen"]))
+    print(str(text["Sprache"]) + ": " + str(text["Haupt"]))
+    print(str(text["Sprache"]) + ": " + str(text["Ausgang"]))
+
+    config_File.removeField("Sprache")
+    config_File.removeField("WillKommen")
+    config_File.removeField("haupt")
+    config_File.removeField("Ausgang")
+
+    STDOUT:
+    
+        >>>
+        English: Welcome
+        English: Main
+        English: Exit
+        Deutsche: Willkommen
+        Deutsche: Haupt
+        Deutsche: Ausgang
+        Deutsche: Willkommen
+        Deutsche: Haupt
+        Deutsche: Ausgang
+        >>>
+        
+    IN-CONFIG:
+    
+    language: English
+    # My Comment
+    Welcome: Welcome
+    Main: Main
+    Exit: Exit
+    ----------------
+    language: Deutsche
+    # My Comment
+    Welcome: Willkommen
+    Main: Haupt
+    Exit: Ausgang
+    ----------------
+    Sprache: Deutsche
+    # My Comment
+    Willkommen: Willkommen
+    Haupt: Haupt
+    Ausgang: Ausgang
+    ----------------
+    
+    ----------------
