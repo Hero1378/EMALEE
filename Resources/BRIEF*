@@ -27,9 +27,9 @@ The GUI will be implemented late project
 
 == Notations/ case ==
 
-Camel case and Hungarian Notation are to be used in order to improve legibility:
-
-    m_iVariableOfGreatImportance
+Camel case improve legibility:
+    
+    someRandomVariable = None
     
 commented- out curly braces are also to be used:
 
@@ -37,3 +37,8 @@ commented- out curly braces are also to be used:
     #{
         <doStuff>
     #}
+
+PEP:
+
+Forget PEP- "PEP:8 Breeding the first-ever generation of developers whose
+code is completely-understandable, and completely-unreadable."
