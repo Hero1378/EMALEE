@@ -120,7 +120,7 @@ EXAMPLE:
 
     config_File.removeField("Sprache")
     config_File.removeField("Willkommen")
-    config_File.removeField("haupt")
+    config_File.removeField("Haupt")
     config_File.removeField("Ausgang")
 
     STDOUT:
