@@ -39,9 +39,11 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
         -   [FW] (C) [22/07/2015|24/07/2015]-[#]: Write methods to get current line, and char. These will be needed in
                 findAllStrings(), as to delete the nth element that has been found, the line number and column must be found.
     -   [FW] (C) [#|#]-[#]: Write method 'getExistingBars()' (see problems).
-    -   [FW] (N) [#|#]-[#]: Write method 'findAllStrings'.
-    -   [FW] (N) [#|#]-[#]: Write method 'findChar'
-    -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
+*   -   [FW] (N) [#|#]-[#]: Write method 'findAllStrings'.
+*   -   [FW] (N) [#|#]-[#]: Write method 'findChar'
+*   -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
     -   [FW] (I) [27/07/2015|27/07/2015]-[9]: Write method 'getExistingPunctuation and removePunctuation (see problems)'
     -   [FW] (C) [27/07/2015|27/07/2015]-[#]: Bundle array returns as nth D arrays i.e. BEFORE = [0, 12, 5, 45] AFTER = [[0, 12], [5, 45]]
     -   [FW] (I) [#|#]-[#]: Make method names consistent i.e (get, find)?
+*       -   [FW] (N) [#|#]-[#]: Add parser 'punctuation' to a configuration file
+        -   [FW] (N) [#|#]-[#]: Optimise removePunc(), by adding startpoints

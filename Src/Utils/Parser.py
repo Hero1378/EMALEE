@@ -88,7 +88,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #{
             fileContents = toFindIn
         #}
-        
+
         lengthOfFile    = self.getNumbOfLines()
         currChar        = "" # Current line being read (char)
         currLine        = "" # Current character being read (String)
@@ -280,27 +280,38 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return puncPositions
     #}
 
-    def removePunctuation(self, punctuationCoords, startPoint, toFindIn):
-    #{
-        fileContents       = self.getFileContents()
-        startPoints        = self.findPunctuation(startPoint, toFindIn)
-        currLine           = "" # Current Alpha-form line being read
-        currChar           = "" # Current Alpha-form char being read
-        currLineNumb       = 0 # Current Numerical-form line being read
-        currCharNumb       = 0 # Current Numerical-form char being read
+    def removePunctuation(self, punctuationCoords,toFindIn):
+    #{ Someone feel free to optimise and add a startpoint
+        fileContents          = self.getFileContents()
+        formattedFileContents = []
+        punctuation           = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
+                                 "%", "^", "&", "*", "[", "]", "{", "}", "`",
+                                 "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
+        currLine              = ""
+        currString             = "" # Current string being parsed
+        currChar              = "" # Char being parsed
 
+        for l in range(len(fileContents)):
+        #{
+            currLine = fileContents[l].split()
 
-        for i in range(len(startPoints) - 1): # While there are still caps to change todo out of range too small, one extra value is ignored
-        #{ PSEUDO -1 to each charNumb if still on same line
-            currLineNumb               = startPoints[i][0] # Line
-            currCharNumb               = startPoints[i][1] # Char
-            currLine                   = " ".join(fileContents[currLineNumb].split()) # convert to String keeping spaces
-            currChar                   = currLine[currCharNumb] # Split the string up into a list of chars
-            currLine                   = currLine.replace(currChar, "") # TODO world's larget's pain in the arse, see problems(>>>)
-            fileContents[currLineNumb] = currLine
+            for c in range(len(currLine)):
+            #{
+                currString = " ".join(currLine[c]).split()
+
+                for i in range(len(currString)):
+                #{
+                    if(currString[i] in punctuation):
+                    #{
+                        currString[i] = " "
+                    #}
+                #}
+
+                formattedFileContents.append("".join(currString))
+            #}
         #}
 
-        return fileContents
+        return " ".join(formattedFileContents).split()
     #}
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
@@ -416,4 +427,3 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.removePunctuation(None, None, None))
