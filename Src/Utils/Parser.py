@@ -145,6 +145,24 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return barLocations
     #}
 
+    def getCapsCombinations(self, seed): # Return standard capital combos of a string
+    #{
+        combos  = []
+        seed    = list(seed.lower())
+        combos.append("".join(seed))
+        seed[0] = seed[0].upper()
+        combos.append("".join(seed))
+
+        for i in range(len(seed)):
+        #{
+            seed[i] = seed[i].upper()
+        #}
+
+        combos.append("".join(seed))
+
+        return combos
+    #}
+
     def markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
     #{
         formattedList = listToMark
@@ -479,7 +497,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return toFindPositions
     #}
 
-    def replace(self, toReplace, replaceWith, toFindIn, startPoints):
+    def replaceString(self, toReplace, replaceWith, toFindIn, startPoints):
     #{
         if(toFindIn is None):
         #{
@@ -536,4 +554,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
-print(p_1.replace("quam", "duam", None, None))
+print(p_1.getCapsCombinations("Ipsum"))
