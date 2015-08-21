@@ -78,6 +78,25 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return lineLengths # No defunct line, as relies on method that strips blank line (getNumbOfLines)
     #}
 
+    def getLongestLineLength(self):
+    #{
+        lineLengths = self.getLineLengths()
+        longestLine = lineLengths[0]
+        currLine    = 0
+
+        for i in range(1, len(lineLengths)):
+        #{
+            currLine = lineLengths[i]
+
+            if(currLine > longestLine):
+            #{
+                longestLine = currLine
+            #}
+        #}
+
+        return longestLine
+    #}
+
     def getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
     #{
         if(toFindIn is None):
@@ -280,38 +299,30 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return puncPositions
     #}
 
-    def removePunctuation(self, punctuationCoords,toFindIn):
-    #{ Someone feel free to optimise and add a startpoint
+    def removePunctuation(self, toFindIn):
+    #{ Someone feel free to optimise and add a place to start
         fileContents          = self.getFileContents()
-        formattedFileContents = []
         punctuation           = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
                                  "%", "^", "&", "*", "[", "]", "{", "}", "`",
                                  "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
+        formattedFileContents = []
         currLine              = ""
-        currString             = "" # Current string being parsed
-        currChar              = "" # Char being parsed
-
         for l in range(len(fileContents)):
         #{
-            currLine = fileContents[l].split()
+            currLine = "".join(fileContents[l])
 
-            for c in range(len(currLine)):
+            for i in range(len(punctuation)):
             #{
-                currString = " ".join(currLine[c]).split()
-
-                for i in range(len(currString)):
+                if(punctuation[i] in " ".join(currLine).split()):
                 #{
-                    if(currString[i] in punctuation):
-                    #{
-                        currString[i] = " "
-                    #}
+                    currLine = currLine.replace(punctuation[i], "")
                 #}
-
-                formattedFileContents.append("".join(currString))
             #}
+
+            formattedFileContents.append(currLine)
         #}
 
-        return " ".join(formattedFileContents).split()
+        return formattedFileContents
     #}
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
@@ -324,11 +335,11 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
         if(toFindIn is None): # if nothing given
         #{
-            fileContents = self.getFileContents()
+            fileContents = self.removePunctuation(None)
         #}
         else:
         #{
-            fileContents = toFindIn
+            fileContents = self.removePunctuation(toFindIn)
         #}
 
         currLine    = "" # Line being read
@@ -359,13 +370,11 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             #}
             elif(startPoint[0] > self.getNumbOfLines()):
             #{
-                print("StartPoint[0] is Larger than the Number of Lines in the"
-                      " File")
+                return -1 # Larger than file
             #}
             elif(startPoint[1] > self.getLineLengths()[0]):
             #{
-                print("StartPoint[1] is Larger than the Number of Lines in the"
-                      " File")
+                return -1 # Larger than file
             #}
         #}
         else:
@@ -376,9 +385,15 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         currLinePos = startPoint[0]
         currCharPos = startPoint[1]
 
-        while((not foundItem) and (pos < len(fileContents))): # loops until found the item, or array end reached
+        while((not foundItem) and (pos <= len(fileContents))): # loops until found the item, or array end reached
         #{
+            if(currLinePos == len(fileContents)):
+            #{
+                return -1
+            #}
+
             currLine = fileContents[currLinePos].split() # Converts to individual words
+
             lenCurrLine = len(currLine) # "+1" as the 1st elemet is how many lines in the file
 
             while((not foundItem) and (currCharPos < lenCurrLine)): # Until end of line
@@ -407,19 +422,113 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
     def findAllStrings(self, toFind, toFindIn, newStartPoint): # TODO
     #{
-        pass
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        if(newStartPoint is None):
+        #{
+            startPoint = [0, 0]
+        #}
+        else:
+        #{
+            startPoint = newStartPoint
+        #}
+
+        toFind             = toFind
+        toFindPositions    = [] # List of all string 'coords'
+        currToFindPosition = [None, None] # List of current string coord
+        findStringCall     = None # Keep method call in memory, prevents two calls
+        done               = False # When method returns '-1'
+        pos                = 0 # Loop counter
+
+        while(not done):
+        #{
+            findStringCall = self.findString(toFind, toFindIn, startPoint)
+
+            if(findStringCall == -1):
+            #{
+                done = True
+
+                continue
+            #}
+
+            currToFindPosition[0] = findStringCall[0]
+            currToFindPosition[1] = findStringCall[1]
+            toFindPositions.append(currToFindPosition)
+            startPoint[0]         = currToFindPosition[0]
+            startPoint[1]         = currToFindPosition[1] + 1 # Move to next String
+
+            if(startPoint[1] <= self.getLineLengths()[pos]):
+            #{
+                currToFindPosition = [None, None] # Reset
+            #}
+            else:
+            #{
+                done = True
+            #}
+
+            pos += 1
+        #}
+
+        return toFindPositions
     #}
 
-    def findChar(self):
+    def replace(self, toReplace, replaceWith, toFindIn, startPoints):
     #{
-        # TODO
-        pass #QWFX
-    #}
+        if(toFindIn is None):
+        #{
+            fileContents = self.removePunctuation(None)
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
 
-    def replace(self):
-    #{
-        # TODO
-        pass #QWFX
+        formattedFileContents = []
+        toReplace             = toReplace
+        replaceWith           = replaceWith
+        currLine              = ""
+
+        if(startPoints is None):
+        #{
+            startPoints = self.findAllStrings(toReplace, toFindIn, None)
+        #}
+        else:
+        #{
+            startPoints = startPoints
+        #}
+
+        if(startPoints == []): # If nothing is returned
+        #{
+            return -1
+        #}
+
+        currStartPoint = 0 # Element number in array
+
+        for l in range(len(fileContents)):
+        #{
+            currLine = "".join(fileContents[l]).split()
+
+            for i in range(len(currLine)):
+            #{
+                if(i == startPoints[currStartPoint][1]): # TODO
+                #{
+                    currLine[i] = replaceWith
+
+                    currStartPoint += 1
+                #}
+            #}
+
+            formattedFileContents.append(" ".join(currLine))
+        #}
+
+        return formattedFileContents
     #}
 #}
 
@@ -427,3 +536,4 @@ file = "FileExample.txt"
 
 p_1 = Parser(file)
 
+print(p_1.replace("quam", "duam", None, None))

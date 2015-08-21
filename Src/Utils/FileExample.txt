@@ -1,4 +1,4 @@
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur id interdum
+Lorem ipsum, dolor sit amet, consectetur adipiscing elit. Curabitur id interdum
 massa. Donec egestas convallis convallis. Donec id odio nec lorem tempor dictum
 vulputate ac lectus. Sed in sapien elementum, porttitor nisl at, cursus nisi.
 Nunc eget orci ut turpis mattis tristique id sed lorem. Nullam turpis massa,
