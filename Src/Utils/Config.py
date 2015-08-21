@@ -30,7 +30,7 @@ class Config():
         return lengthOfFile
     #}
 
-    def __resetFile(self): # Used to go back to first line
+    def __resetFile(self): # Used to go back to first line and get changes
     #{
         self.FILE = open(self.fileName, "r")
     #}
