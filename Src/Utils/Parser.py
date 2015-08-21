@@ -514,12 +514,12 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         for l in range(len(fileContents)):
         #{
             currLine = "".join(fileContents[l]).split()
-
             for i in range(len(currLine)):
             #{
-                if(i == startPoints[currStartPoint][1]): # TODO
+                if(i <= len(startPoints) and
+                  (i == startPoints[currStartPoint][1])): # TODO
                 #{
-                    currLine[i] = replaceWith
+                    currLine[i - 1] = replaceWith
 
                     currStartPoint += 1
                 #}
