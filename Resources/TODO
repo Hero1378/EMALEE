@@ -24,11 +24,11 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
 -   [FW] (P) [#]-[#]: Continue to improve Analysis. (When analysis is later added to.)
 ¬   [FW] (I) [28/06/2015 | 30/07/2015]-[#]: Start work on framework.
     ¬   [FW] (I) [28/06/2015 | 16/07/2015]-[#]: Finish writing ParserDoc.
-    ¬   [FW] (I) [28/06/2015 | 20/07/2015]-[2]: Write String parser(basics).
+    ¬   [FW] (C) [28/06/2015 | 20/07/2015]-[2]: Write String parser(basics).
         ¬   [FW] (#) [12/07/2015 | 18/07/2015]-[3]: Deal with ArrayOutOfBounds if IN(startPoint) = [x, y].(Can't recreate)
-    ¬   [FW] (I) [28/06/2015 | 16/07/2015]-[#]: Write String parser(basics).
-    ¬   [FW] (I) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
-*   -   [FW] (I) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
+    ¬   [FW] (C) [28/06/2015 | 16/07/2015]-[#]: Write String parser(basics).
+    ¬   [FW] (C) [11/07/2015 | 26/07/2015]-[#]: Deal with caps.
+*   -   [FW] (C) [#|#]-[#]: Write Method to make 'ex-caps' upper && interpret in .lower().
         -[FW] (N) [#|#|-[#]: Write Wiki
     -   [FW] (C) [#|#]-[#]: Write getlineLen() and getNumbOfLines() instead of getLength()
         -   [FW] (N) [#|#]-[#]: Optimise by keeping file in cache
@@ -42,8 +42,8 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
 *   -   [FW] (N) [#|#]-[#]: Write method 'findAllStrings'.
 *   -   [FW] (N) [#|#]-[#]: Write method 'findChar'
 *   -   [FW] (N) [#|#]-[#]: Write method 'findAllChars'
-    -   [FW] (I) [27/07/2015|27/07/2015]-[9]: Write method 'getExistingPunctuation and removePunctuation (see problems)'
+    -   [FW] (C) [27/07/2015|27/07/2015]-[9]: Write method 'getExistingPunctuation and removePunctuation (see problems)'
     -   [FW] (C) [27/07/2015|27/07/2015]-[#]: Bundle array returns as nth D arrays i.e. BEFORE = [0, 12, 5, 45] AFTER = [[0, 12], [5, 45]]
-    -   [FW] (I) [#|#]-[#]: Make method names consistent i.e (get, find)?
+    -   [FW] (C) [#|#]-[#]: Make method names consistent i.e (get, find)?
 *       -   [FW] (N) [#|#]-[#]: Add parser 'punctuation' to a configuration file
         -   [FW] (N) [#|#]-[#]: Optimise removePunc(), by adding startpoints
