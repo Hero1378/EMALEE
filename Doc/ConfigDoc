@@ -20,7 +20,7 @@ addField:
     IN-CONFIG: height: 20
     RETURNS: N/A
     NOTE: fieldNames will have their spaces removed i.e 'var Name' will become
-          'varName'. WILL BE ERASED AFTER EACH EDIT TO THE CONFIG FILE!
+          'varName'.
 
 addComment:
 
@@ -32,6 +32,7 @@ addComment:
     NOTE: When adding a comment manually in the config file,
           MOVE CARET ONTO A NEWLINE. This will prevent variables from overriding
           one another.
+    NOTE:  COMMENTS WILL BE ERASED AFTER EACH EDIT TO THE CONFIG FILE!
 
 editFieldValue:
 
