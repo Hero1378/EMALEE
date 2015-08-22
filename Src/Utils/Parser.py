@@ -131,7 +131,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return totalLength
     #}
 
-    def getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
+    def __getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
     #{
         if(toFindIn is None):
         #{
@@ -218,7 +218,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return formattedFileContents
     #}
 
-    def markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
+    def __markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
     #{
         formattedList = listToMark
         currString    = "" # The current string being parsed
@@ -245,7 +245,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
     def findCapitalLetters(self): # Returns the position of captials
     #{
-        fileContents          = "".join(self.markNewLines(self.getFileContents())) # Convert to string for parsing
+        fileContents          = "".join(self.__markNewLines(self.getFileContents())) # Convert to string for parsing
         capitalLocations      = [] # line, chars across
         currCapitalLocation   = [None, None] # Temp var used to 'bundle' arrays
         lineNumber            = 0 # number of line currently being read
@@ -507,53 +507,104 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         if(startPoint is None):
         #{
             startPoint = self.findString(toReplace, toFindIn, startPoint)
+
+            if(startPoint == -1): # String not found
+            #{
+                return -1
+            #}
         #}
 
-        locationOfString      = self.findString(toReplace, toFindIn, startPoint)
-        currLine              = fileContents[locationOfString[0]].split() # Get line
-        currString            = currLine[locationOfString[1]]
-        newString             = "" # Replacement of currString
-        beginning             = ""
-        ending                = "" # Everything (spaces grammar) after string
-        currChar              = ""
-        pos                   = 0 # Loop counter
-        foundString           = False
+        if(startPoint == -1): # String not found
+        #{
+            return -1
+        #}
+
+        currLine    = fileContents[startPoint[0]].split() # Get line
+        currString  = currLine[startPoint[1]]
+        newString   = "" # Replacement of currString
+        ending      = "" # Everything (spaces grammar) after string
+        currChar    = ""
+        pos         = 0 # Loop counter
+        foundString = False
 
 
         while(not foundString):
         #{
             currChar = currString[pos]
 
-            if((currChar == " ") or
-               (currChar in self.punctuation) or
-               (currString[pos + 1] is None)): # Handle newlines
+            if((currChar in self.punctuation) or
+               ((pos + 1) > (len(currString) - 1))): # Handle newlines
             #{
                 foundString = True
                 ending      = currString[pos : len(currString)]
 
-                continue
-            #}
+                if((ending == "") or (ending not in self.punctuation)):
+                #{
+                    ending = ""
+                #}
 
-            if(currChar not in toReplace):
-            #{
-                beginning += currChar
+                continue
             #}
 
             newString += currChar
             pos       += 1
         #}
-                                                    # Add punctuation/ spaces
-        newString                                 = beginning + replaceWith + ending
-        currLine[locationOfString[1]] = newString
-        fileContents[locationOfString[0]]         = " ".join(currLine)
+                                        # Add punctuation/ spaces
+        newString                     = replaceWith + ending
+        currLine[startPoint[1]]       = newString
+        fileContents[startPoint[0]]   = " ".join(currLine)
 
         return fileContents
     #}
 
-    def replaceAllStrings(self, toReplace, replaceWith, toFindIn, startPoints):
+    def replaceAllStrings(self, toReplace, replaceWith, toFindIn): # Takes no startPoints
     #{
-        #TODO QWFX
-        pass
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        numbReplacements = 0 # Number of removals performed
+        prevFileContents = ""
+        startPoint       = self.findString(toReplace, fileContents, None)
+
+        if(replaceWith == ""): # Avoids startpoints, really dirty
+        #{
+            fileContents = " ".join(fileContents).replace(toReplace, "").split()
+
+            return fileContents
+        #}
+
+        if(startPoint == -1): # String not found
+        #{
+            return -1
+        #}
+
+        done       = False
+
+        while(not done):
+        #{
+            fileContents = self.replaceString(toReplace, replaceWith,
+                                              fileContents, startPoint)
+
+            if(fileContents == -1):
+            #{
+                done = True
+
+                continue
+            #}
+
+            prevFileContents = fileContents
+
+            startPoint[1]   += 1 # Move to next String
+            startPoint       = self.findString(toReplace, fileContents, startPoint)
+        #}
+
+        return prevFileContents
     #}
 
     def editFile(self, newFileContentsList):
@@ -574,5 +625,4 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
 file = "FileExample.txt"
 p_1 = Parser(file)
-x = p_1.replaceString("argestam", "", None, None)
-#p_1.editFile(x)
+print(p_1.replaceAllStrings("quam", "", None))
