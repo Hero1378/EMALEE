@@ -22,6 +22,10 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             self.FILE.close()
             self.FILE = open(str(self.fileName), "r+") # Open in read and WRITE mode
         #}
+
+        self.punctuation = [",", ".", "(", ")", "!", "", '"', "£", "$", "%",
+                            "^", "&", "*", "[", "]", "{", "}", "`", "¬", "|",
+                            " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
     #}
 
     def getNumbOfLines(self):
@@ -97,6 +101,36 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return longestLine
     #}
 
+    def getTotalNumbOfStrings(self):
+    #{
+        separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
+        totalLength   = len(separatedFile)
+
+        return totalLength
+    #}
+
+    def getTotalNumbOfChars(self, toFindIn): # Adds up number of chars
+    #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        lengthOfFile   = self.getNumbOfLines()
+        totalLength = 0 # Numb of chars in file
+
+        for i in range(lengthOfFile):
+        #{
+            totalLength += len(fileContents[i])
+        #}
+
+        return totalLength
+    #}
+
     def getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
     #{
         if(toFindIn is None):
@@ -152,15 +186,36 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         combos.append("".join(seed))
         seed[0] = seed[0].upper()
         combos.append("".join(seed))
-
-        for i in range(len(seed)):
-        #{
-            seed[i] = seed[i].upper()
-        #}
-
+        seed    = "".join(seed).upper()
         combos.append("".join(seed))
 
         return combos
+    #}
+
+    def removePunctuation(self, toFindIn):
+    #{ Someone feel free to optimise and add a place to start
+        fileContents          = self.getFileContents()
+        self.punctuation           = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
+                                      "%", "^", "&", "*", "[", "]", "{", "}", "`",
+                                      "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
+        formattedFileContents = []
+        currLine              = ""
+        for l in range(len(fileContents)):
+        #{
+            currLine = "".join(fileContents[l])
+
+            for i in range(len(self.punctuation)):
+            #{
+                if(self.punctuation[i] in " ".join(currLine).split()):
+                #{
+                    currLine = currLine.replace(self.punctuation[i], "")
+                #}
+            #}
+
+            formattedFileContents.append(currLine)
+        #}
+
+        return formattedFileContents
     #}
 
     def markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
@@ -186,36 +241,6 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #}
 
         return formattedList
-    #}
-
-    def getTotalNumbOfChars(self, toFindIn): # Adds up number of chars
-    #{
-        if(toFindIn is None):
-        #{
-            fileContents = self.getFileContents()
-        #}
-        else:
-        #{
-            fileContents = toFindIn
-        #}
-
-        lengthOfFile   = self.getNumbOfLines()
-        totalLength = 0 # Numb of chars in file
-
-        for i in range(lengthOfFile):
-        #{
-            totalLength += len(fileContents[i])
-        #}
-
-        return totalLength
-    #}
-
-    def getTotalNumbOfStrings(self):
-    #{
-        separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
-        totalLength   = len(separatedFile)
-
-        return totalLength
     #}
 
     def findCapitalLetters(self): # Returns the position of captials
@@ -284,9 +309,6 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #}
 
         lengthOfFile  = self.getNumbOfLines()
-        punctuation   = [",", ".", "(", ")", "!", "", '"', "£", "$", "%", "^",
-                         "&", "*", "[", "]", "{", "}", "`", "¬", "|", " \ ", ":",
-                         ";", "~", "@", "-", "_"] # Which fool decided to use Python!
         puncPositions = [] # Line number, char
         currPuncPos   = [None, None] # Temp Var used to 'bundle' arrays
 
@@ -299,7 +321,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
                 currChar = currLine[pos]
                 currCharNumber += 1
 
-                if(currChar in punctuation):
+                if(currChar in self.punctuation):
                 #{
                     currPuncPos[0] = currLineNumber
                     currPuncPos[1] = currCharNumber - 1 # Counteract startpoint being 0
@@ -315,32 +337,6 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #}
 
         return puncPositions
-    #}
-
-    def removePunctuation(self, toFindIn):
-    #{ Someone feel free to optimise and add a place to start
-        fileContents          = self.getFileContents()
-        punctuation           = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
-                                 "%", "^", "&", "*", "[", "]", "{", "}", "`",
-                                 "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
-        formattedFileContents = []
-        currLine              = ""
-        for l in range(len(fileContents)):
-        #{
-            currLine = "".join(fileContents[l])
-
-            for i in range(len(punctuation)):
-            #{
-                if(punctuation[i] in " ".join(currLine).split()):
-                #{
-                    currLine = currLine.replace(punctuation[i], "")
-                #}
-            #}
-
-            formattedFileContents.append(currLine)
-        #}
-
-        return formattedFileContents
     #}
 
     def findString(self, toFind, toFindIn, startPoint): # To find in is the text body to look in (optional if passed in)
@@ -497,61 +493,86 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return toFindPositions
     #}
 
-    def replaceString(self, toReplace, replaceWith, toFindIn, startPoints):
+    def replaceString(self, toReplace, replaceWith, toFindIn, startPoint):
     #{
         if(toFindIn is None):
         #{
-            fileContents = self.removePunctuation(None)
+            fileContents = list(self.getFileContents()) # Split to chars
         #}
         else:
         #{
-            fileContents = toFindIn
+            fileContents = list(toFindIn)
         #}
 
-        formattedFileContents = []
-        toReplace             = toReplace
-        replaceWith           = replaceWith
-        currLine              = ""
-
-        if(startPoints is None):
+        if(startPoint is None):
         #{
-            startPoints = self.findAllStrings(toReplace, toFindIn, None)
-        #}
-        else:
-        #{
-            startPoints = startPoints
+            startPoint = self.findString(toReplace, toFindIn, startPoint)
         #}
 
-        if(startPoints == []): # If nothing is returned
-        #{
-            return -1
-        #}
+        locationOfString      = self.findString(toReplace, toFindIn, startPoint)
+        currLine              = fileContents[locationOfString[0]].split() # Get line
+        currString            = currLine[locationOfString[1]]
+        newString             = "" # Replacement of currString
+        beginning             = ""
+        ending                = "" # Everything (spaces grammar) after string
+        currChar              = ""
+        pos                   = 0 # Loop counter
+        foundString           = False
 
-        currStartPoint = 0 # Element number in array
 
-        for l in range(len(fileContents)):
+        while(not foundString):
         #{
-            currLine = "".join(fileContents[l]).split()
-            for i in range(len(currLine)):
+            currChar = currString[pos]
+
+            if((currChar == " ") or
+               (currChar in self.punctuation) or
+               (currString[pos + 1] is None)): # Handle newlines
             #{
-                if(i <= len(startPoints) and
-                  (i == startPoints[currStartPoint][1])): # TODO
-                #{
-                    currLine[i - 1] = replaceWith
+                foundString = True
+                ending      = currString[pos : len(currString)]
 
-                    currStartPoint += 1
-                #}
+                continue
             #}
 
-            formattedFileContents.append(" ".join(currLine))
+            if(currChar not in toReplace):
+            #{
+                beginning += currChar
+            #}
+
+            newString += currChar
+            pos       += 1
+        #}
+                                                    # Add punctuation/ spaces
+        newString                                 = beginning + replaceWith + ending
+        currLine[locationOfString[1]] = newString
+        fileContents[locationOfString[0]]         = " ".join(currLine)
+
+        return fileContents
+    #}
+
+    def replaceAllStrings(self, toReplace, replaceWith, toFindIn, startPoints):
+    #{
+        #TODO QWFX
+        pass
+    #}
+
+    def editFile(self, newFileContentsList):
+    #{
+        self.FILE.close()
+        self.FILE = open(self.fileName, "w")
+
+        for i in range(len(newFileContentsList)):
+        #{
+            self.FILE.write(newFileContentsList[i])
         #}
 
-        return formattedFileContents
+        self.FILE.close()
+        self.FILE = open(self.fileName, "r")
     #}
+
 #}
 
 file = "FileExample.txt"
-
 p_1 = Parser(file)
-
-print(p_1.getCapsCombinations("Ipsum"))
+x = p_1.replaceString("argestam", "", None, None)
+#p_1.editFile(x)

@@ -29,3 +29,5 @@ len() returns 'human len' I.E. array = ["a", "b", "c"] ############ DUH!
 
                             >>>3
                                ^== 3 ! 2
+replace current SLOW 'split' method with list()
+replaceString -> looks for spaces
