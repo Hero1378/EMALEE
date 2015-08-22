@@ -370,19 +370,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #}
         elif(startPoint is not None):
         #{
-            if(len(startPoint) > 2): # 2 args should be passed in
-            #{
-                raise print("Too Many args Passed in.")
-            #}
-            elif(not (isinstance(startPoint[0], int))): # If not an integer
-            #{
-                print("StartPoint[0] is not an integer")
-            #}
-            elif(not (isinstance(startPoint[1], int))):
-            #{
-                print("StartPoint[1] is not an integer")
-            #}
-            elif(startPoint[0] > self.getNumbOfLines()):
+            if(startPoint[0] > self.getNumbOfLines()):
             #{
                 return -1 # Larger than file
             #}
