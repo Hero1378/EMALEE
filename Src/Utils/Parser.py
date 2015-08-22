@@ -608,5 +608,4 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         self.FILE.close()
         self.FILE = open(self.fileName, "r")
     #}
-
 #}
