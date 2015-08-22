@@ -610,7 +610,3 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
     #}
 
 #}
-
-file = "FileExample.txt"
-p_1 = Parser(file)
-print(p_1.replaceAllStrings("quam", "", None))
