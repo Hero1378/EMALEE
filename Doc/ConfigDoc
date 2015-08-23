@@ -1,6 +1,6 @@
 =================================| ConfigDoc |==================================
 
-Parser.py is used to edit and create Configuration Files. In order to create a
+Config.py is used to edit and create Configuration Files. In order to create a
 'Config' object, a fileName must be provided:
 
 SYNTAX: <variableName> = Config("<fileName>")
