@@ -76,7 +76,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
         for pos in range(lengthOfFile):
         #{
-            currLine = fileContents[pos]
+            currLine = fileContents[pos] # Changed from [pos -1]
 
             lineLengths.append(int(len(currLine)))
         #}
