@@ -1,3 +1,5 @@
+import os
+
 class Parser: # excuse the terrible practice of modifying methods based upon their
 #{              prams, after all this is a prototype.
     def __init__(self, newFileName):
@@ -267,6 +269,28 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #}
 
         return formattedFileContents
+    #}
+
+    def removeFile(self, fileName, path):
+    #{
+        path = path
+
+        if(path is None):
+        #{
+            path = os.getcwd()
+        #}
+
+        existingFiles = os.listdir(path) # List of existing files
+
+        if(fileName not in existingFiles):
+        #{
+            print("file '" + str(fileName) + "' does not exist in '" +
+                   str(path) + "'")
+
+            return -1
+        #}
+
+        os.remove(str(path) + "/" + str(fileName))
     #}
 
     def __markNewLines(self, listToMark): # makes cariage returns visable to the program(post splitting) and pre joining
@@ -607,7 +631,6 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             fileContents = toFindIn
         #}
 
-        numbReplacements = 0 # Number of removals performed
         prevFileContents = ""
         startPoint       = self.findString(toReplace, fileContents, None)
 
@@ -658,5 +681,32 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
         self.FILE.close()
         self.FILE = open(self.fileName, "r")
+    #}
+
+    def copyFile(self, newFileName, path):
+    #{
+        if(path is None):
+        #{
+            path = os.getcwd() # Get working dir path
+        #}
+
+        existingFiles = os.listdir(path)
+
+        if(newFileName in existingFiles):
+        #{
+            print("file '" + str(newFileName) + "' already exists.")
+
+            return -1
+        #}
+
+        fileContents = self.getFileContents()
+        file         = open(newFileName, "w")
+
+        for i in range(len(fileContents)):
+        #{
+            file.write(str(fileContents[i]))
+        #}
+
+        file.close()
     #}
 #}
