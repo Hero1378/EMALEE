@@ -33,3 +33,5 @@ replace current SLOW 'split' method with list()
 replaceString -> looks for spaces
 may need to speed up replace all strings when replaceWith = "", currently using
 '.replace'
+
+changed getLineLengths [pos -1] to pos # May cause crashes
