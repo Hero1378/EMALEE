@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54eb5acb-d77a-499f-8c3e-6d460b98ea41" name="Default" comment="" />
+    <list default="true" id="c5a22c7c-2748-473e-96ed-7553b6d1ce77" name="Default" comment="" />
     <ignored path="Utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,36 +21,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ParserDoc" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../Doc/ParserDoc">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8327526">
+              <caret line="212" column="9" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.05574913">
-              <caret line="711" column="4" selection-start-line="711" selection-start-column="4" selection-end-line="711" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
               <folding>
-                <element signature="e#94#20572#0" expanded="false" />
                 <element signature="e#189#1172#0" expanded="false" />
                 <element signature="e#1215#1407#0" expanded="false" />
                 <element signature="e#1451#2027#0" expanded="false" />
-                <element signature="e#2070#2573#0" expanded="false" />
-                <element signature="e#2622#2973#0" expanded="false" />
-                <element signature="e#3023#3189#0" expanded="false" />
-                <element signature="e#3273#3682#0" expanded="false" />
-                <element signature="e#3758#4181#0" expanded="false" />
-                <element signature="e#4264#4849#0" expanded="false" />
-                <element signature="e#4960#6526#0" expanded="false" />
-                <element signature="e#6625#6893#0" expanded="false" />
-                <element signature="e#6949#7889#0" expanded="false" />
-                <element signature="e#7944#8361#0" expanded="false" />
-                <element signature="e#8495#9183#0" expanded="false" />
-                <element signature="e#9265#10648#0" expanded="false" />
-                <element signature="e#10714#12342#0" expanded="false" />
-                <element signature="e#12476#14994#0" expanded="false" />
-                <element signature="e#15077#16613#0" expanded="false" />
-                <element signature="e#16701#18409#0" expanded="false" />
-                <element signature="e#18512#19647#0" expanded="false" />
-                <element signature="e#19705#19975#0" expanded="false" />
-                <element signature="e#20031#20572#0" expanded="false" />
+                <element signature="e#2070#2767#0" expanded="false" />
+                <element signature="e#2816#3167#0" expanded="false" />
+                <element signature="e#3227#3540#0" expanded="false" />
+                <element signature="e#3624#4056#0" expanded="false" />
+                <element signature="e#4118#4499#0" expanded="false" />
+                <element signature="e#4565#5082#0" expanded="false" />
+                <element signature="e#5193#6759#0" expanded="false" />
+                <element signature="e#6858#7126#0" expanded="false" />
+                <element signature="e#7182#8173#0" expanded="false" />
+                <element signature="e#8228#8645#0" expanded="false" />
+                <element signature="e#8779#9467#0" expanded="false" />
+                <element signature="e#9549#10932#0" expanded="false" />
+                <element signature="e#10998#12626#0" expanded="false" />
+                <element signature="e#12760#15278#0" expanded="false" />
+                <element signature="e#15361#16897#0" expanded="false" />
+                <element signature="e#16985#18693#0" expanded="false" />
+                <element signature="e#18796#19931#0" expanded="false" />
+                <element signature="e#19989#20259#0" expanded="false" />
+                <element signature="e#20315#20851#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileExample.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FileExample.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -62,6 +81,7 @@
       <list>
         <option value="$PROJECT_DIR$/FileExample.txt" />
         <option value="$PROJECT_DIR$/Parser.py" />
+        <option value="$PROJECT_DIR$/../../Doc/ParserDoc" />
       </list>
     </option>
   </component>
@@ -73,25 +93,6 @@
     <option name="y" value="24" />
     <option name="width" value="1215" />
     <option name="height" value="1000" />
-  </component>
-  <component name="ProjectInspectionProfilesVisibleTreeState">
-    <entry key="Project Default">
-      <profile-state>
-        <expanded-state>
-          <State>
-            <id />
-          </State>
-          <State>
-            <id>Python</id>
-          </State>
-        </expanded-state>
-        <selected-state>
-          <State>
-            <id>Python</id>
-          </State>
-        </selected-state>
-      </profile-state>
-    </entry>
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -117,7 +118,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -138,13 +138,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Parser.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Doc/ParserDoc" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
-    <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.Parser">
     <configuration default="false" name="Parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -298,10 +297,10 @@
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="54eb5acb-d77a-499f-8c3e-6d460b98ea41" name="Default" comment="" />
-      <created>1440327826063</created>
+      <changelist id="c5a22c7c-2748-473e-96ed-7553b6d1ce77" name="Default" comment="" />
+      <created>1440333424298</created>
       <option name="number" value="Default" />
-      <updated>1440327826063</updated>
+      <updated>1440333424298</updated>
     </task>
     <servers />
   </component>
@@ -332,42 +331,62 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/FileExample.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.05574913">
-          <caret line="711" column="4" selection-start-line="711" selection-start-column="4" selection-end-line="711" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
           <folding>
-            <element signature="e#94#20572#0" expanded="false" />
             <element signature="e#189#1172#0" expanded="false" />
             <element signature="e#1215#1407#0" expanded="false" />
             <element signature="e#1451#2027#0" expanded="false" />
-            <element signature="e#2070#2573#0" expanded="false" />
-            <element signature="e#2622#2973#0" expanded="false" />
-            <element signature="e#3023#3189#0" expanded="false" />
-            <element signature="e#3273#3682#0" expanded="false" />
-            <element signature="e#3758#4181#0" expanded="false" />
-            <element signature="e#4264#4849#0" expanded="false" />
-            <element signature="e#4960#6526#0" expanded="false" />
-            <element signature="e#6625#6893#0" expanded="false" />
-            <element signature="e#6949#7889#0" expanded="false" />
-            <element signature="e#7944#8361#0" expanded="false" />
-            <element signature="e#8495#9183#0" expanded="false" />
-            <element signature="e#9265#10648#0" expanded="false" />
-            <element signature="e#10714#12342#0" expanded="false" />
-            <element signature="e#12476#14994#0" expanded="false" />
-            <element signature="e#15077#16613#0" expanded="false" />
-            <element signature="e#16701#18409#0" expanded="false" />
-            <element signature="e#18512#19647#0" expanded="false" />
-            <element signature="e#19705#19975#0" expanded="false" />
-            <element signature="e#20031#20572#0" expanded="false" />
+            <element signature="e#2070#2767#0" expanded="false" />
+            <element signature="e#2816#3167#0" expanded="false" />
+            <element signature="e#3227#3540#0" expanded="false" />
+            <element signature="e#3624#4056#0" expanded="false" />
+            <element signature="e#4118#4499#0" expanded="false" />
+            <element signature="e#4565#5082#0" expanded="false" />
+            <element signature="e#5193#6759#0" expanded="false" />
+            <element signature="e#6858#7126#0" expanded="false" />
+            <element signature="e#7182#8173#0" expanded="false" />
+            <element signature="e#8228#8645#0" expanded="false" />
+            <element signature="e#8779#9467#0" expanded="false" />
+            <element signature="e#9549#10932#0" expanded="false" />
+            <element signature="e#10998#12626#0" expanded="false" />
+            <element signature="e#12760#15278#0" expanded="false" />
+            <element signature="e#15361#16897#0" expanded="false" />
+            <element signature="e#16985#18693#0" expanded="false" />
+            <element signature="e#18796#19931#0" expanded="false" />
+            <element signature="e#19989#20259#0" expanded="false" />
+            <element signature="e#20315#20851#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Doc/ParserDoc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8327526">
+          <caret line="212" column="9" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -78,7 +78,14 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         #{
             currLine = fileContents[pos] # Changed from [pos -1]
 
-            lineLengths.append(int(len(currLine)))
+            if((pos + 1) == len(fileContents)):
+            #{
+                lineLengths.append(int(len(currLine)))
+            #}
+            else:
+            #{
+                lineLengths.append(int(len(currLine) - 1)) # Ignore newlines
+            #}
         #}
 
         return lineLengths # No defunct line, as relies on method that strips blank line (getNumbOfLines)
@@ -103,9 +110,17 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return longestLine
     #}
 
-    def getTotalNumbOfStrings(self):
+    def getTotalNumbOfStrings(self, toFindIn):
     #{
-        separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
+        if(toFindIn is None):
+        #{
+            separatedFile = "".join(self.getFileContents()).split() # Seperate file into strings
+        #}
+        else:
+        #{
+            separatedFile = "".join(toFindIn).split()
+        #}
+
         totalLength   = len(separatedFile)
 
         return totalLength
@@ -115,7 +130,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
     #{
         if(toFindIn is None):
         #{
-            fileContents = self.getFileContents()
+            fileContents = " ".join(self.getFileContents()).split()
         #}
         else:
         #{
@@ -125,7 +140,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         lengthOfFile   = self.getNumbOfLines()
         totalLength = 0 # Numb of chars in file
 
-        for i in range(lengthOfFile):
+        for i in range(len(fileContents)):
         #{
             totalLength += len(fileContents[i])
         #}
@@ -133,7 +148,7 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return totalLength
     #}
 
-    def getStringAt(self, lineNumbAndStringsAcross, toFindIn):
+    def getStringAt(self, startPoint, toFindIn):
     #{
         if(toFindIn is None):
         #{
@@ -144,18 +159,18 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             fileContents = toFindIn
         #}
 
-        if(lineNumbAndStringsAcross == -1):
+        if(startPoint == -1):
         #{
             return -1
         #}
 
-        currLine   = fileContents[lineNumbAndStringsAcross[0]].split()
-        currString = currLine[lineNumbAndStringsAcross[1]]
+        currLine   = fileContents[startPoint[0]].split()
+        currString = currLine[startPoint[1]]
 
         return currString
     #}
 
-    def getAllStringsAt(self, lineNumbersAndStringsAcross, toFindIn):
+    def getAllStringsAt(self, startPoint, toFindIn):
     #{
         if(toFindIn is None):
         #{
@@ -166,17 +181,17 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
             fileContents = toFindIn
         #}
 
-        if(lineNumbersAndStringsAcross == -1):
+        if(startPoint == -1):
         #{
             return -1
         #}
 
         strings = []
 
-        for i in range(len(lineNumbersAndStringsAcross)):
+        for i in range(len(startPoint)):
         #{
-            currLine   = fileContents[lineNumbersAndStringsAcross[i][0]].split()
-            currString = currLine[lineNumbersAndStringsAcross[i][1]]
+            currLine   = fileContents[startPoint[i][0]].split()
+            currString = currLine[startPoint[i][1]]
 
             strings.append(currString)
         #}
@@ -248,9 +263,9 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
     def removePunctuation(self, toFindIn):
     #{ Someone feel free to optimise and add a place to start
         fileContents          = self.getFileContents()
-        self.punctuation           = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
-                                      "%", "^", "&", "*", "[", "]", "{", "}", "`",
-                                      "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
+        self.punctuation      = [",", ".", "(", ")", "!", "", '"', "£", "$", "?",
+                                 "%", "^", "&", "*", "[", "]", "{", "}", "`",
+                                 "¬", "|", " \ ", ":", ";", "~", "@", "-", "_"] # Which fool decided to use Python!
         formattedFileContents = []
         currLine              = ""
         for l in range(len(fileContents)):
@@ -265,7 +280,10 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
                 #}
             #}
 
-            formattedFileContents.append(currLine)
+            if(currLine != ""):
+            #{
+                formattedFileContents.append(currLine)
+            #}
         #}
 
         return formattedFileContents
@@ -710,3 +728,6 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         file.close()
     #}
 #}
+p = Parser("FileExample.txt")
+list=["Nupta,", "ea,", "nigram Hiemi", "numquid lana"]
+print(p.editFile(list))

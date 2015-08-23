@@ -1,0 +1,213 @@
+=================================| ParserDoc |==================================
+
+Parser.py is used to parse, edit, copy and remove text files.In order to create
+a 'Parser' object, a fileName must be provided:
+
+SYNTAX: <variableName> = Parser("<fileName>")
+E.G.: p = Parser("FileExample.txt")
+NOTE: A file extension must be specified with the fileName (if the file has one).
+
+There are nineteen methods available to the user:
+
+    Some frequently used parameters are (all can be substituted with 'None'
+    (this is a nasty replacement for Python's lack of method overloading)):
+
+        startPoint: A list containing the line number, and number of strings
+                    across in the file, for the parser to start at. Default is:
+                    line 0, column 0.
+        toFindIn: The list for the method to look in. If this is substituted
+                  with 'None' the default 'toFindIn' will be the file specified
+                  in the constructor.
+        path: The file path i.e.(path\to\some\file MUST USE BACKSLASHES), to a
+              file. This can be substituted with 'None', its default will be
+              the current working directory.
+
+getFileContents:
+
+    DESCRIPTION: Return a list with the contents of the file, with each element
+                 being a different line pf the file.
+    SYNTAX: getFileContents()
+    E.G.: getFileContents()
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: ['Hello my', 'Name is', ":"]
+    NOTE:
+
+getNumbOfLines:
+
+    DESCRIPTION: Return the number of occupied(filled with text) lines in the
+                 file.
+    SYNTAX: getNumbOfLines()
+    E.G.: getNumbOfLines()
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: 3
+    NOTE:
+
+getLineLengths:
+
+    DESCRIPTION: Return a list with the length(in chars) of each occupied line
+                 in the file.
+    SYNTAX: getLineLengths()
+    E.G.: getLineLengths()
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: [8, 7, 1]
+    NOTE:
+
+getLongestLineLength:
+
+    DESCRIPTION: Return the length in chars of the longest line
+    SYNTAX: getLongestLineLength()
+    E.G.: getLongestLineLength()
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: 8
+    NOTE:
+
+getTotalNumbOfStrings:
+
+    DESCRIPTION: Return the total number of strings in the file.
+    SYNTAX: getLongestLineLength(<toFindIn>)
+    E.G.: getLongestLineLength(None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: 5
+    NOTE:
+
+getTotalNumbOfChars:
+
+    DESCRIPTION: Return the total number of chars in the file.
+    SYNTAX: getTotalNumbOfChars(<toFindIn>)
+    E.G.: getTotalNumbOfChars(None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: 14
+    NOTE:
+
+getCapsCombinations:
+
+    DESCRIPTION: Return a list of all standard combinations of the string
+                 provided.
+    SYNTAX: getCapsCombinations("<someString>")
+    E.G.: getCapsCombinations("ipsum")
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: ['ipsum', 'Ipsum', 'IPSUM']
+    NOTE:
+
+getStringAt:
+
+    DESCRIPTION: Return the string at a given point in the file.
+    SYNTAX: getStringAt(<startPoint>, <toFindIn>)
+    E.G.: startPoint = [0, 1]
+          getStringAt(startPoint, None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS:
+    NOTE:
+
+getAllStringsAt:
+
+    DESCRIPTION: Return a list of strings at particular points in the file.
+    SYNTAX: getAllStringsAt(<startPoint>, <toFindIn>)
+    E.G.: startPoint = [[0, 1], [1, 0]]
+        getAllStringsAt(startPoint, None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: ['my', 'Name']
+    NOTE:
+
+removePunctuation:
+
+    DESCRIPTION: Return a list of the fileContents without punctuation marks.
+    SYNTAX: removePunctuation(<toFindIn>)
+    E.G.: removePunctuation(None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: ['Hello my\n', 'Name is\n']
+    NOTE: WILL RETURN NEWLINES
+
+removeFile:
+
+    DESCRIPTION: Remove a given file from a folder.
+    SYNTAX: removeFile("<fileName>", "<path>")
+    E.G.: removeFile("FileExample.txt", None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: N/A
+    NOTE: THERE IS NO WAY OF RECOVERING THE FILE AFTER REMOVAL. It is suggested
+          that a copy of the file is made, before deletion.
+
+findCapitalLetters:
+
+    DESCRIPTION: Return a list of the locations of each captial letter in the
+                 file.
+    SYNTAX: findCapitalLetters()
+    E.G.: findCapitalLetters()
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS:
+    NOTE:
+
+findPunctuation:
+
+    DESCRIPTION: Return a list of the locations of each punctuation mark in the
+                 file
+    SYNTAX: findPunctuation(<startPoint>, <toFindIn>)
+    E.G.: findPunctuation(None, None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: [[0, 0], [1, 1]]
+    NOTE:
+
+findString:
+
+    DESCRIPTION: Return a list containing the line number, and how many chars
+                 across in the line until the string given is found.
+    SYNTAX: findString("<toFind>", "<toFindIn>", <startPoint>)
+    E.G.: findString("Name", None, None)
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: [1, 0]
+    NOTE: Will return '-1' if string not found
+
+findAllStrings:
+
+    DESCRIPTION: Return a list containing the line numbers, and how many chars
+                 across in the file until each string given is found.
+    SYNTAX: findAllStrings("<toFind>", "<toFindIn>", <startPoint>")
+    E.G.: findAllStrings("Name", None, None)
+    IN-FILE: Hello my\nName is\n: Name\n
+    RETURNS: [[1, 0], [1, 2]]
+    NOTE:
+
+replaceString:
+
+    DESCRIPTION: Return a list of the file contents, with a given string
+                 (the first one found in the file), substituted with another
+                 given string.
+    SYNTAX: replaceString("<toReplace>", "<replaceWith>", <toFindIn>,
+                           <startPoint>)
+    E.G.: replaceString("Name", "nominis", None, None)
+    IN-FILE: Hello my\nName is\n: Name\n
+    RETURNS: ['Hello my\n', 'nominis is Name', ':']
+    NOTE:
+
+replaceAllStrings:
+
+    DESCRIPTION: Return a list of the file contents, with every given string
+                 replaced with another given string.
+    SYNTAX: replaceAllStrings(<"toReplace">, "<replaceWith>", <toFindIn>,
+                              <startPoint>)
+    E.G.: replaceAllStrings("Name", "nominis", None)
+    IN-FILE: Hello my\nName is\n: Name\n
+    RETURNS: ['Hello my\n', 'nominis is nominis', ':']
+    NOTE: this method takes no 'startPoint'
+
+copyFile:
+
+    DESCRIPTION: Copy a file, replacing its name with another, to somewhere on
+                 the filesystem.
+    SYNTAX: copyFile("<newFileName>", "<path>")
+    E.G.: copyFile("FileExample.txt", "FileExample(Copy).txt")
+    IN-FILE: Hello my\nName is\n:\n
+    RETURNS: N/A
+    NOTE: It is not possible to copy a file with the same name, to the same
+          directory.
+
+editFile:
+
+    DESCRIPTION: Overwrite the ENTIRE file with a list.
+    SYNTAX: editFile(<newFileContentsList>)
+    E.G.: list=["Nupta,", "ea,", "nigram Hiemi", "numquid lana"]
+          editFile(list)
+    IN-FILE: Hello my\nName is\n:\n BECOMES Nupta,ea,nigram Hieminumquid lana
+    RETURNS: N/A
+    NOTE:
