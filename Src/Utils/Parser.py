@@ -709,4 +709,4 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
 
         file.close()
     #}
-#}
+#}  

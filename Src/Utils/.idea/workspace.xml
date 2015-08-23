@@ -25,9 +25,9 @@
         <entry file="file://$PROJECT_DIR$/Parser.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.05574913">
-              <caret line="711" column="2" selection-start-line="711" selection-start-column="2" selection-end-line="711" selection-end-column="2" />
+              <caret line="711" column="4" selection-start-line="711" selection-start-column="4" selection-end-line="711" selection-end-column="4" />
               <folding>
-                <element signature="e#94#20570#0" expanded="false" />
+                <element signature="e#94#20572#0" expanded="false" />
                 <element signature="e#189#1172#0" expanded="false" />
                 <element signature="e#1215#1407#0" expanded="false" />
                 <element signature="e#1451#2027#0" expanded="false" />
@@ -49,7 +49,7 @@
                 <element signature="e#16701#18409#0" expanded="false" />
                 <element signature="e#18512#19647#0" expanded="false" />
                 <element signature="e#19705#19975#0" expanded="false" />
-                <element signature="e#20031#20570#0" expanded="false" />
+                <element signature="e#20031#20572#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -316,7 +316,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2497939" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -342,9 +342,9 @@
     <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05574913">
-          <caret line="711" column="2" selection-start-line="711" selection-start-column="2" selection-end-line="711" selection-end-column="2" />
+          <caret line="711" column="4" selection-start-line="711" selection-start-column="4" selection-end-line="711" selection-end-column="4" />
           <folding>
-            <element signature="e#94#20570#0" expanded="false" />
+            <element signature="e#94#20572#0" expanded="false" />
             <element signature="e#189#1172#0" expanded="false" />
             <element signature="e#1215#1407#0" expanded="false" />
             <element signature="e#1451#2027#0" expanded="false" />
@@ -366,7 +366,7 @@
             <element signature="e#16701#18409#0" expanded="false" />
             <element signature="e#18512#19647#0" expanded="false" />
             <element signature="e#19705#19975#0" expanded="false" />
-            <element signature="e#20031#20570#0" expanded="false" />
+            <element signature="e#20031#20572#0" expanded="false" />
           </folding>
         </state>
       </provider>
