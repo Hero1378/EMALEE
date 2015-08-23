@@ -131,6 +131,57 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         return totalLength
     #}
 
+    def getStringAt(self, lineNumbAndStringsAcross, toFindIn):
+    #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        if(lineNumbAndStringsAcross == -1):
+        #{
+            return -1
+        #}
+
+        currLine   = fileContents[lineNumbAndStringsAcross[0]].split()
+        currString = currLine[lineNumbAndStringsAcross[1]]
+
+        return currString
+    #}
+
+    def getAllStringsAt(self, lineNumbersAndStringsAcross, toFindIn):
+    #{
+        if(toFindIn is None):
+        #{
+            fileContents = self.getFileContents()
+        #}
+        else:
+        #{
+            fileContents = toFindIn
+        #}
+
+        if(lineNumbersAndStringsAcross == -1):
+        #{
+            return -1
+        #}
+
+        strings = []
+
+        for i in range(len(lineNumbersAndStringsAcross)):
+        #{
+            currLine   = fileContents[lineNumbersAndStringsAcross[i][0]].split()
+            currString = currLine[lineNumbersAndStringsAcross[i][1]]
+
+            strings.append(currString)
+        #}
+
+        return strings
+    #}
+
     def __getExistingBars(self, toFindIn): # returns the 'coords' of the existing newLine markers
     #{
         if(toFindIn is None):
