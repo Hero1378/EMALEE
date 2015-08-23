@@ -94,7 +94,7 @@ class Log:
                 #}
             #}
 
-            self.file = open(str(self.path + "/" + self.fileName + ".log"), "a")
+            self.file = open(str(self.path + "/" + self.fileName + ".log"), "r+")
         #}
         except(IOError) as error:
         #{
