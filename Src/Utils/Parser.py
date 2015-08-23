@@ -728,6 +728,3 @@ class Parser: # excuse the terrible practice of modifying methods based upon the
         file.close()
     #}
 #}
-p = Parser("FileExample.txt")
-list=["Nupta,", "ea,", "nigram Hiemi", "numquid lana"]
-print(p.editFile(list))

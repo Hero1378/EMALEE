@@ -22,6 +22,9 @@ There are nineteen methods available to the user:
               file. This can be substituted with 'None', its default will be
               the current working directory.
 
+NOTE: The parser is case- sensitive, so it's wise to use 'getCapsCombinations'
+      to search for terms.
+
 getFileContents:
 
     DESCRIPTION: Return a list with the contents of the file, with each element
@@ -30,7 +33,6 @@ getFileContents:
     E.G.: getFileContents()
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: ['Hello my', 'Name is', ":"]
-    NOTE:
 
 getNumbOfLines:
 
@@ -40,7 +42,6 @@ getNumbOfLines:
     E.G.: getNumbOfLines()
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: 3
-    NOTE:
 
 getLineLengths:
 
@@ -50,7 +51,6 @@ getLineLengths:
     E.G.: getLineLengths()
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: [8, 7, 1]
-    NOTE:
 
 getLongestLineLength:
 
@@ -59,7 +59,6 @@ getLongestLineLength:
     E.G.: getLongestLineLength()
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: 8
-    NOTE:
 
 getTotalNumbOfStrings:
 
@@ -68,7 +67,6 @@ getTotalNumbOfStrings:
     E.G.: getLongestLineLength(None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: 5
-    NOTE:
 
 getTotalNumbOfChars:
 
@@ -77,7 +75,6 @@ getTotalNumbOfChars:
     E.G.: getTotalNumbOfChars(None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: 14
-    NOTE:
 
 getCapsCombinations:
 
@@ -87,7 +84,7 @@ getCapsCombinations:
     E.G.: getCapsCombinations("ipsum")
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: ['ipsum', 'Ipsum', 'IPSUM']
-    NOTE:
+    NOTE: Usefull for looking for 'Ipsum', as-well as 'ipsum'
 
 getStringAt:
 
@@ -97,7 +94,6 @@ getStringAt:
           getStringAt(startPoint, None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS:
-    NOTE:
 
 getAllStringsAt:
 
@@ -107,7 +103,6 @@ getAllStringsAt:
         getAllStringsAt(startPoint, None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: ['my', 'Name']
-    NOTE:
 
 removePunctuation:
 
@@ -135,8 +130,7 @@ findCapitalLetters:
     SYNTAX: findCapitalLetters()
     E.G.: findCapitalLetters()
     IN-FILE: Hello my\nName is\n:\n
-    RETURNS:
-    NOTE:
+    RETURNS: [[0, 0], [1, 1]]
 
 findPunctuation:
 
@@ -146,7 +140,7 @@ findPunctuation:
     E.G.: findPunctuation(None, None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: [[0, 0], [1, 1]]
-    NOTE:
+    NOTE: Punctuation should be ideally defined in a config file.
 
 findString:
 
@@ -156,7 +150,7 @@ findString:
     E.G.: findString("Name", None, None)
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: [1, 0]
-    NOTE: Will return '-1' if string not found
+    NOTE: Will return '-1' if string not found.
 
 findAllStrings:
 
@@ -166,7 +160,7 @@ findAllStrings:
     E.G.: findAllStrings("Name", None, None)
     IN-FILE: Hello my\nName is\n: Name\n
     RETURNS: [[1, 0], [1, 2]]
-    NOTE:
+    NOTE: will return '-1 if string not found.
 
 replaceString:
 
@@ -178,7 +172,7 @@ replaceString:
     E.G.: replaceString("Name", "nominis", None, None)
     IN-FILE: Hello my\nName is\n: Name\n
     RETURNS: ['Hello my\n', 'nominis is Name', ':']
-    NOTE:
+    NOTE: will return '-1 if string not found.
 
 replaceAllStrings:
 
@@ -190,6 +184,7 @@ replaceAllStrings:
     IN-FILE: Hello my\nName is\n: Name\n
     RETURNS: ['Hello my\n', 'nominis is nominis', ':']
     NOTE: this method takes no 'startPoint'
+    NOTE: will return '-1 if string not found.
 
 copyFile:
 
@@ -210,4 +205,4 @@ editFile:
           editFile(list)
     IN-FILE: Hello my\nName is\n:\n BECOMES Nupta,ea,nigram Hieminumquid lana
     RETURNS: N/A
-    NOTE:
+    NOTE: THIS WILL OVERWRITE THE ENTIRE FILE.
