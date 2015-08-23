@@ -47,4 +47,5 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
     -   [FW] (C) [#|#]-[#]: Make method names consistent i.e (get, find)?
 *       -   [FW] (N) [#|#]-[#]: Add parser 'punctuation' to a configuration file
         -   [FW] (N) [#|#]-[#]: Optimise removePunc(), by adding startpoints
--   [FW] (N) [22/08/2015|23/08/2015]-[#]: Write Parser Doc.
+-   [FW] (C) [22/08/2015|23/08/2015]-[#]: Write Parser Doc.
+-   [FW] (N) [#|#]-[#]: Finish writing Log.py.
