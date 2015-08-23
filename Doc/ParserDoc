@@ -28,7 +28,7 @@ NOTE: The parser is case- sensitive, so it's wise to use 'getCapsCombinations'
 getFileContents:
 
     DESCRIPTION: Return a list with the contents of the file, with each element
-                 being a different line pf the file.
+                 being a different line of the file.
     SYNTAX: getFileContents()
     E.G.: getFileContents()
     IN-FILE: Hello my\nName is\n:\n
@@ -84,7 +84,7 @@ getCapsCombinations:
     E.G.: getCapsCombinations("ipsum")
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: ['ipsum', 'Ipsum', 'IPSUM']
-    NOTE: Usefull for looking for 'Ipsum', as-well as 'ipsum'
+    NOTE: Useful for looking for 'Ipsum', as-well as 'ipsum'
 
 getStringAt:
 
@@ -100,7 +100,7 @@ getAllStringsAt:
     DESCRIPTION: Return a list of strings at particular points in the file.
     SYNTAX: getAllStringsAt(<startPoint>, <toFindIn>)
     E.G.: startPoint = [[0, 1], [1, 0]]
-        getAllStringsAt(startPoint, None)
+        getAllStringsAt(startPoint, None)RHH
     IN-FILE: Hello my\nName is\n:\n
     RETURNS: ['my', 'Name']
 
@@ -125,7 +125,7 @@ removeFile:
 
 findCapitalLetters:
 
-    DESCRIPTION: Return a list of the locations of each captial letter in the
+    DESCRIPTION: Return a list of the locations of each capital letter in the
                  file.
     SYNTAX: findCapitalLetters()
     E.G.: findCapitalLetters()
