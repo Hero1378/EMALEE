@@ -51,3 +51,5 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
 -   [FW] (N) [#|#]-[#]: Finish writing Log.py.
 -   [FW] (N) [#|#]-[#]: Add optional path to Config.py (see log.py)
 -   [FW] (N) [#|#]-[#]: Add optional path to Parser.py (see log.py)
+*-   [FW] (N) [#|#]-[#]: Write method/ Module to format word / odt files, AND-OR add method / module to add newlines
+                         to end of .txt files without '\n'.
