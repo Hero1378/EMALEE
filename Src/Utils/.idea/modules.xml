@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../../GUI_Lib/.idea/GUI_Lib.iml" filepath="$PROJECT_DIR$/../../../GUI_Lib/.idea/GUI_Lib.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/Parser_Test/.idea/Parser_Test.iml" filepath="$USER_HOME$/Desktop/Parser_Test/.idea/Parser_Test.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/PyQt_Test/.idea/PyQt_Test.iml" filepath="$USER_HOME$/Desktop/PyQt_Test/.idea/PyQt_Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Utils.iml" filepath="$PROJECT_DIR$/.idea/Utils.iml" />
     </modules>
   </component>

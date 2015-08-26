@@ -126,12 +126,27 @@ class Log:
 
     def outInfo(self, message): # Display to STD out
     #{
-        print(str(self.__getDateTime()) + " [INFO] " + message)
+        print(str(self.__getDateTime()) + " [INFO] " + message) # Description of Events
+    #}
+
+    def outWarn(self, message):
+    #{
+        print(str(self.__getDateTime()) + " [WARN] " + message) # Things are slightly different to normal
+    #}
+
+    def outError(self, message):
+    #{
+        print(str(self.__getDateTime()) + " [ERROR] " + message) # Something's unresponsive, all unhandled xceptions
     #}
 
     def outSevere(self, message):
     #{
-        print(str(self.__getDateTime()) + " [SEVERE] " + message)
+        print(str(self.__getDateTime()) + " [SEVERE] " + message) # Something really bad, probably going to cause program to crash
+    #}
+
+    def outFatal(self, message):
+    #{
+        print(str(self.__getDateTime()) + " [FATAL] " + message) # Somtheing that has broken the program
     #}
 
     def logInfo(self, message): # Add to log file (standard)
@@ -139,8 +154,23 @@ class Log:
         self.file.write(self.__getDateTime() + " [INFO] " + message + "\n")
     #}
 
+    def logWarn(self, message):
+    #{
+        self.file.write(self.__getDateTime() + " [WARN] " + message + "\n")
+    #}
+
+    def logError(self, message):
+    #{
+        self.file.write(self.__getDateTime() + " [INFO] " + message + "\n")
+    #}
+
     def logSevere(self, message):
     #{
         self.file.write(self.__getDateTime() + " [SEVERE] " + message + "\n")
+    #}
+
+    def logFatal(self, message):
+    #{
+        self.file.write(self.__getDateTime() + " [FATAL] " + message + "\n")
     #}
 #}

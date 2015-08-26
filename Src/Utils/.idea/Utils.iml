@@ -4,5 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="Parser_Test" />
+    <orderEntry type="module" module-name="PyQt_Test" />
+    <orderEntry type="module" module-name="GUI_Lib" />
   </component>
 </module>

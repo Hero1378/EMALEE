@@ -21,73 +21,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ParserDoc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Doc/ParserDoc">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Log.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Log.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Log.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.49655172">
+              <caret line="143" column="130" selection-start-line="143" selection-start-column="130" selection-end-line="143" selection-end-column="130" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#34#4513#0" expanded="false" />
                 <element signature="e#81#3659#0" expanded="false" />
                 <element signature="e#3696#3977#0" expanded="false" />
-                <element signature="e#4043#4109#0" expanded="false" />
-                <element signature="e#4156#4224#0" expanded="false" />
-                <element signature="e#4298#4376#0" expanded="false" />
-                <element signature="e#4423#4513#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TODO" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../Resources/TODO">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9368542">
-              <caret line="51" column="67" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Parser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="729" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="729" selection-end-column="2" />
-              <folding>
-                <element signature="e#189#1172#0" expanded="false" />
-                <element signature="e#1215#1407#0" expanded="false" />
-                <element signature="e#1451#2027#0" expanded="false" />
-                <element signature="e#2070#2767#0" expanded="false" />
-                <element signature="e#2816#3167#0" expanded="false" />
-                <element signature="e#3227#3540#0" expanded="false" />
-                <element signature="e#3624#4056#0" expanded="false" />
-                <element signature="e#4118#4499#0" expanded="false" />
-                <element signature="e#4565#5082#0" expanded="false" />
-                <element signature="e#5193#6759#0" expanded="false" />
-                <element signature="e#6858#7126#0" expanded="false" />
-                <element signature="e#7182#8173#0" expanded="false" />
-                <element signature="e#8228#8645#0" expanded="false" />
-                <element signature="e#8779#9467#0" expanded="false" />
-                <element signature="e#9549#10932#0" expanded="false" />
-                <element signature="e#10998#12626#0" expanded="false" />
-                <element signature="e#12760#15278#0" expanded="false" />
-                <element signature="e#15361#16897#0" expanded="false" />
-                <element signature="e#16985#18693#0" expanded="false" />
-                <element signature="e#18796#19931#0" expanded="false" />
-                <element signature="e#19989#20259#0" expanded="false" />
-                <element signature="e#20315#20854#0" expanded="false" />
+                <element signature="e#4858#4936#0" expanded="false" />
+                <element signature="e#4981#5059#0" expanded="false" />
+                <element signature="e#5105#5183#0" expanded="false" />
+                <element signature="e#5230#5310#0" expanded="false" />
+                <element signature="e#5356#5445#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -95,14 +41,30 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/FileExample.txt" />
         <option value="$PROJECT_DIR$/Parser.py" />
         <option value="$PROJECT_DIR$/../../Doc/ParserDoc" />
-        <option value="$PROJECT_DIR$/Log.py" />
         <option value="$PROJECT_DIR$/../../Resources/TODO" />
+        <option value="$USER_HOME$/Desktop/Parser_Test/Parser.py" />
+        <option value="$USER_HOME$/Desktop/Parser_Test/main.py" />
+        <option value="$USER_HOME$/Desktop/PyQt_Test/main.py" />
+        <option value="$PROJECT_DIR$/../../../GUI_Lib/Elastic.py" />
+        <option value="$USER_HOME$/Desktop/PyQt_Test/ToEncode.txt" />
+        <option value="$USER_HOME$/Desktop/PyQt_Test/Seed.txt" />
+        <option value="$USER_HOME$/Desktop/PyQt_Test/Encription.py" />
+        <option value="$USER_HOME$/Desktop/GCSE_Code/Code_Ver5.py" />
+        <option value="$PROJECT_DIR$/Server.log" />
+        <option value="$PROJECT_DIR$/Log.py" />
       </list>
     </option>
   </component>
@@ -110,10 +72,10 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
-    <option name="width" value="1217" />
-    <option name="height" value="1001" />
+    <option name="width" value="1209" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -138,8 +100,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -160,27 +120,80 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Resources/TODO" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/GCSE_Code/Code_Ver5.py" />
     <property name="recentsLimit" value="5" />
     <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager" selected="Python.Log">
-    <configuration default="false" name="Parser" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="main (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/PyQt_Test" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyQt_Test" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/PyQt_Test/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Elastic" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../GUI_Lib" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GUI_Lib" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../GUI_Lib/Elastic.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Encription" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/PyQt_Test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="PyQt_Test" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/PyQt_Test/Encription.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Code_Ver5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/GCSE_Code" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Utils" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Parser.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/GCSE_Code/Code_Ver5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -324,14 +337,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Python.Parser" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Log" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.main (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Elastic" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Encription" />
+      <item index="3" class="java.lang.String" itemvalue="Python.Code_Ver5" />
+      <item index="4" class="java.lang.String" itemvalue="Python.Log" />
     </list>
     <recent_temporary>
-      <list size="2">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.Log" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Parser" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Code_Ver5" />
+        <item index="2" class="java.lang.String" itemvalue="Python.Encription" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Elastic" />
+        <item index="4" class="java.lang.String" itemvalue="Python.main (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -349,27 +368,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="24" width="1217" height="1001" extended-state="6" />
+    <frame x="65" y="24" width="1209" height="1000" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24938272" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25103563" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814237" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -390,16 +409,113 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Encription.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Seed.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/ToEncode.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Decoded.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="25" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../GUI_Lib/Elastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="25" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../GUI_Lib/Elastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="25" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../GUI_Lib/Elastic.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Resources/Problems">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/../../Doc/ParserDoc">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -407,16 +523,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#34#4513#0" expanded="false" />
-            <element signature="e#81#3659#0" expanded="false" />
-            <element signature="e#3696#3977#0" expanded="false" />
-            <element signature="e#4043#4109#0" expanded="false" />
-            <element signature="e#4156#4224#0" expanded="false" />
-            <element signature="e#4298#4376#0" expanded="false" />
-            <element signature="e#4423#4513#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Resources/TODO">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="51" column="67" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Doc/ParserDoc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -424,30 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="729" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="729" selection-end-column="2" />
-          <folding>
-            <element signature="e#189#1172#0" expanded="false" />
-            <element signature="e#1215#1407#0" expanded="false" />
-            <element signature="e#1451#2027#0" expanded="false" />
-            <element signature="e#2070#2767#0" expanded="false" />
-            <element signature="e#2816#3167#0" expanded="false" />
-            <element signature="e#3227#3540#0" expanded="false" />
-            <element signature="e#3624#4056#0" expanded="false" />
-            <element signature="e#4118#4499#0" expanded="false" />
-            <element signature="e#4565#5082#0" expanded="false" />
-            <element signature="e#5193#6759#0" expanded="false" />
-            <element signature="e#6858#7126#0" expanded="false" />
-            <element signature="e#7182#8173#0" expanded="false" />
-            <element signature="e#8228#8645#0" expanded="false" />
-            <element signature="e#8779#9467#0" expanded="false" />
-            <element signature="e#9549#10932#0" expanded="false" />
-            <element signature="e#10998#12626#0" expanded="false" />
-            <element signature="e#12760#15278#0" expanded="false" />
-            <element signature="e#15361#16897#0" expanded="false" />
-            <element signature="e#16985#18693#0" expanded="false" />
-            <element signature="e#18796#19931#0" expanded="false" />
-            <element signature="e#19989#20259#0" expanded="false" />
-            <element signature="e#20315#20854#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -455,7 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="207" column="46" selection-start-line="207" selection-start-column="46" selection-end-line="207" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -463,7 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="212" column="9" selection-start-line="212" selection-start-column="9" selection-end-line="212" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -471,30 +572,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="732" column="8" selection-start-line="732" selection-start-column="8" selection-end-line="732" selection-end-column="8" />
-          <folding>
-            <element signature="e#189#1172#0" expanded="false" />
-            <element signature="e#1215#1407#0" expanded="false" />
-            <element signature="e#1451#2027#0" expanded="false" />
-            <element signature="e#2070#2767#0" expanded="false" />
-            <element signature="e#2816#3167#0" expanded="false" />
-            <element signature="e#3227#3540#0" expanded="false" />
-            <element signature="e#3624#4056#0" expanded="false" />
-            <element signature="e#4118#4499#0" expanded="false" />
-            <element signature="e#4565#5082#0" expanded="false" />
-            <element signature="e#5193#6759#0" expanded="false" />
-            <element signature="e#6858#7126#0" expanded="false" />
-            <element signature="e#7182#8173#0" expanded="false" />
-            <element signature="e#8228#8645#0" expanded="false" />
-            <element signature="e#8779#9467#0" expanded="false" />
-            <element signature="e#9549#10932#0" expanded="false" />
-            <element signature="e#10998#12626#0" expanded="false" />
-            <element signature="e#12760#15278#0" expanded="false" />
-            <element signature="e#15361#16897#0" expanded="false" />
-            <element signature="e#16985#18693#0" expanded="false" />
-            <element signature="e#18796#19931#0" expanded="false" />
-            <element signature="e#19989#20259#0" expanded="false" />
-            <element signature="e#20315#20854#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -502,70 +579,93 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Parser.py">
+    <entry file="file://$PROJECT_DIR$/../../Resources/TODO">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="729" column="2" selection-start-line="0" selection-start-column="0" selection-end-line="729" selection-end-column="2" />
-          <folding>
-            <element signature="e#189#1172#0" expanded="false" />
-            <element signature="e#1215#1407#0" expanded="false" />
-            <element signature="e#1451#2027#0" expanded="false" />
-            <element signature="e#2070#2767#0" expanded="false" />
-            <element signature="e#2816#3167#0" expanded="false" />
-            <element signature="e#3227#3540#0" expanded="false" />
-            <element signature="e#3624#4056#0" expanded="false" />
-            <element signature="e#4118#4499#0" expanded="false" />
-            <element signature="e#4565#5082#0" expanded="false" />
-            <element signature="e#5193#6759#0" expanded="false" />
-            <element signature="e#6858#7126#0" expanded="false" />
-            <element signature="e#7182#8173#0" expanded="false" />
-            <element signature="e#8228#8645#0" expanded="false" />
-            <element signature="e#8779#9467#0" expanded="false" />
-            <element signature="e#9549#10932#0" expanded="false" />
-            <element signature="e#10998#12626#0" expanded="false" />
-            <element signature="e#12760#15278#0" expanded="false" />
-            <element signature="e#15361#16897#0" expanded="false" />
-            <element signature="e#16985#18693#0" expanded="false" />
-            <element signature="e#18796#19931#0" expanded="false" />
-            <element signature="e#19989#20259#0" expanded="false" />
-            <element signature="e#20315#20854#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.88978183">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Server.log">
+    <entry file="file://$PROJECT_DIR$/../../Resources/Problems">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Log.py">
+    <entry file="file://$PROJECT_DIR$/Parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="11" selection-start-line="1" selection-start-column="11" selection-end-line="1" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#34#4513#0" expanded="false" />
-            <element signature="e#81#3659#0" expanded="false" />
-            <element signature="e#3696#3977#0" expanded="false" />
-            <element signature="e#4043#4109#0" expanded="false" />
-            <element signature="e#4156#4224#0" expanded="false" />
-            <element signature="e#4298#4376#0" expanded="false" />
-            <element signature="e#4423#4513#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.03673938">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Resources/TODO">
+    <entry file="file://$PROJECT_DIR$/../../../GUI_Lib/Elastic.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9368542">
-          <caret line="51" column="67" selection-start-line="51" selection-start-column="67" selection-end-line="51" selection-end-column="67" />
+        <state vertical-scroll-proportion="0.13563219">
+          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Encription.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6321839">
+          <caret line="83" column="51" selection-start-line="83" selection-start-column="51" selection-end-line="83" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Seed.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8896552">
+          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/ToEncode.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07356322">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/PyQt_Test/Decoded.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Server.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03678161">
+          <caret line="2" column="71" selection-start-line="2" selection-start-column="71" selection-end-line="2" selection-end-column="71" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Log.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49655172">
+          <caret line="143" column="130" selection-start-line="143" selection-start-column="130" selection-end-line="143" selection-end-column="130" />
+          <folding>
+            <element signature="e#81#3659#0" expanded="false" />
+            <element signature="e#3696#3977#0" expanded="false" />
+            <element signature="e#4858#4936#0" expanded="false" />
+            <element signature="e#4981#5059#0" expanded="false" />
+            <element signature="e#5105#5183#0" expanded="false" />
+            <element signature="e#5230#5310#0" expanded="false" />
+            <element signature="e#5356#5445#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
