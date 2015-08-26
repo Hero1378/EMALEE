@@ -1,5 +1,0 @@
-2015-08-26 19:57:07 [INFO] Reading ddOutDir
-2015-08-26 19:57:07 [WARN] Read- time 3 secs slower than usual.
-2015-08-26 19:57:07 [ERROR] Directory Is unresponsive, and won't close.
-2015-08-26 19:57:07 [SEVERE] Directory eating 3MB of memory/ sec
-2015-08-26 19:57:07 [FATAL] Memory limit reached
