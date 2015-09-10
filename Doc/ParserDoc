@@ -3,9 +3,16 @@
 Parser.py is used to parse, edit, copy and remove text files.In order to create
 a 'Parser' object, a fileName must be provided:
 
-SYNTAX: <variableName> = Parser("<fileName>")
-E.G.: p = Parser("FileExample.txt")
+SYNTAX: <variableName> = Parser("<fileName>", args)
+E.G.(without args): p = Parser("FileExample.txt")
+E.G.(with args): p = Parser("FileExample.txt", 50000)
 NOTE: A file extension must be specified with the fileName (if the file has one).
+NOTE: an arg is optional
+
+Args:
+
+    MAX_FILE_CACHE: Maximum number of lines that can be read before loops
+                    terminate. Default is 500
 
 There are nineteen methods available to the user:
 
