@@ -11,10 +11,16 @@ import os
 
 class Parser: # excuse the terrible practice of modifying methods based upon their
 #{              prams, after all this is a prototype.
-    def __init__(self, newFileName):
+    def __init__(self, newFileName, *args):
     #{
-        global MAX_FILE_CACHE # how many lines can be read, before loops terminate
-        MAX_FILE_CACHE = 500   # avoids massivly-long loops
+        if (args):
+        #{
+            MAX_FILE_CACHE = args[0]
+        #}
+        else:
+        #{
+            MAX_FILE_CACHE = 500   # avoids massivly-long loops
+        #}
 
         self.FILE = None
         self.fileName = str(newFileName)
