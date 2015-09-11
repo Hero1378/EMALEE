@@ -54,3 +54,4 @@ TOTAL JOBS ONGOING: FW = 7 | MN = 0       please update!
 *-   [FW] (N) [#|#]-[#]: Write method/ Module to format word / odt files, AND-OR add method / module to add newlines
                          to end of .txt files without '\n'.
 *-   [FW] (N) [#|#]-[#]: Many bugs found (usually '-1' related) found in replaceAllStrings. Test Parser, Config
+*-   [FW] (N) [#|#]-[#]: Redo Parser :O
