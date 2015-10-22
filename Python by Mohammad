@@ -1,0 +1,71 @@
+__author__ = 'Mohammad_Nemati'
+#listofwords = ["A", "a","B" ,"b","a","a"]
+
+stingofwords = input("Please input your sentence:\n")
+
+listofwords = stingofwords.split(" ")
+
+listofwordsmirror = []
+
+listofwordsmirror += listofwords
+
+counter = 0
+for x in range(len(listofwords)):
+
+
+
+
+
+    #inputword = input("Please enter your word:\n")
+
+    inputword = listofwords[x]
+
+    inputwordupper = inputword.upper()
+
+    inputwordlower = inputword.lower()
+
+    porsitionofwords = []
+
+    while inputwordupper in listofwords:
+        try:
+            positionoftheupper = int(listofwords.index(inputwordupper))+1
+            #print(positionoftheupper)
+            listofwords[positionoftheupper-1] = "-"
+
+            porsitionofwords.append(positionoftheupper)
+
+            #listofwordsmirror.remove(inputwordupper)
+        except(ValueError):
+            break
+
+        #if inputwordupper not in listofwordsmirror:
+
+            #break
+
+    while inputwordlower in listofwords:
+        try:
+            positionofthelower = int(listofwords.index(inputwordlower))+1
+
+            #print(int(listofwords.index(inputwordlower))+1)
+            listofwords[positionofthelower-1] = "-"
+            porsitionofwords.append(positionofthelower)
+
+            #listofwordsmirror.remove(inputwordlower)
+
+        #if inputwordlower not in listofwordsmirror:
+
+             #break
+        except(ValueError):
+            break
+
+    if int(len(porsitionofwords)) != 0:
+
+        numberofrepeat = len(porsitionofwords)
+
+        print("The word '"+inputword+"' is repeated "+ str(numberofrepeat) +" time(s) in the following position(s):", porsitionofwords)
+
+        #print(listofwordsmirror)
+
+        #print(listofwords)
+    else:
+        print("Invalid user input '"+inputword+"'")
